@@ -1,2 +1,2 @@
 # pdd
-Python date diff calculator
+Python date, time difference calculator

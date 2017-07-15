@@ -1,0 +1,135 @@
+#!/usr/bin/env python3
+#
+# Date diff calculator.
+#
+# Copyright © 2017 Arun Prakash Jana <engineerarun@gmail.com>
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+import argparse
+import calendar
+from datetime import date
+from datetime import datetime
+from dateutil.relativedelta import relativedelta
+import sys
+import time
+
+# Globals
+
+monthdict = {name.lower(): num
+             for num, name in enumerate(calendar.month_abbr) if num}
+_VERSION_ = '1.0'  # current program version
+
+
+def is_int(string):
+    '''Check if a string is a digit
+
+    :param string: input string
+    :return: True on success, False on exception
+    '''
+
+    try:
+        int(string)
+        return True
+    except Exception:
+        return False
+
+
+class ExtendedArgumentParser(argparse.ArgumentParser):
+    '''Extend classic argument parser'''
+
+    # Print additional help and info
+    @staticmethod
+    def print_extended_help(file=None):
+        if not file:
+            file = sys.stderr
+
+        file.write('''
+Version %s
+Copyright © 2017 Arun Prakash Jana <engineerarun@gmail.com>
+License: GPLv3
+Webpage: https://github.com/jarun/pdd
+''' % _VERSION_)
+
+    # Help
+    def print_help(self, file=None):
+        super(ExtendedArgumentParser, self).print_help(file)
+        self.print_extended_help(file)
+
+
+def parse_args(args=None, namespace=None):
+    '''Parse imgp arguments/options.
+    Parameters
+    ----------
+    args : list, optional
+        Arguments to parse. Default is ``sys.argv``.
+    namespace : argparse.Namespace
+        Namespace to write to. Default is a new namespace.
+    Returns
+    -------
+    argparse.Namespace
+        Namespace with parsed arguments / options.
+    '''
+
+    argparser = ExtendedArgumentParser(
+                    description='Date, time difference calculator.')
+    addarg = argparser.add_argument
+    addarg('-d', dest='date', nargs=6,
+           metavar=('dd', 'mmm', 'yyyy', 'dd', 'mmm', 'yyyy'),
+           help='calculate date difference')
+    addarg('-t', dest='time', nargs=2, metavar=('hh:mm:ss', 'hh:mm:ss'),
+           help='calculate time difference')
+    addarg('-l', dest='long', nargs=2,
+           metavar=('yyyy:mm:dd:hh:mm:ss', 'yyyy:mm:dd:hh:mm:ss'),
+           help='calculate datetime difference')
+
+    # Show help and exit if no arguments
+    if len(sys.argv) < 2:
+        #argparser.print_help(sys.stderr)
+        print('%s %s' % (datetime.now(), time.localtime().tm_zone))
+        sys.exit(1)
+
+    return argparser.parse_args(args, namespace)
+
+
+def main():
+    args = parse_args()
+
+    if args.date is not None:
+        try:
+            d0 = date(int(args.date[2]), int(args.date[1])
+                      if is_int(args.date[1])
+                      else monthdict[args.date[1].lower()],
+                      int(args.date[0]))
+            d1 = date(int(args.date[5]), int(args.date[4])
+                      if is_int(args.date[4])
+                      else monthdict[args.date[4].lower()],
+                      int(args.date[3]))
+
+            if (d0 < d1):
+                _d = d1
+                d1 = d0
+                d0 = _d
+
+            delta = d0 - d1
+            rdelta = relativedelta(d0, d1)
+            print('%dY %dM %dD'
+                  % (rdelta.years, rdelta.months, rdelta.days))
+            print('%dD' % delta.days)
+        except ValueError as e:
+            print(e)
+
+
+if __name__ == '__main__':
+    main()
