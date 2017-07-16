@@ -2,7 +2,7 @@
 
 Date, time difference calculator.
 
-There are times you want to check how old you are (in years, months, days) or how long you need to wait for the next flash sale... `pdd` (*python3 date diff*) does it from the terminal.
+There are times you want to check how old you are (in years, months, days) or how long you need to wait for the next flash sale... `pdd` (python3 date diff) is a small cmdline utility to calculate date and time difference. If no program arguments are specified it shows the current date, time and timezone.
 
 <p align="center">
 <a href="https://saythanks.io/to/jarun"><img src="https://img.shields.io/badge/say-thanks!-ff69b4.svg" /></a>
@@ -26,8 +26,8 @@ There are times you want to check how old you are (in years, months, days) or ho
 
 - calculate date difference
 - calculate time difference
-- show current date, time and timezone
 - calculate diff from *today* and *now*
+- show current date, time and timezone
 - minimal dependencies
 
 ### Installation
@@ -90,7 +90,7 @@ optional arguments:
 - Month can be specified as month number (e.g. Jan - 1, Dec - 12).
 - The absolute difference is shown. Argument order is ignored.
 - The end date is excluded in date difference calculations.
-- Hour, minute or second can be omitted. Partial inputs are recognized as mm:ss or ss.
+- Hour, minute or second can be omitted. Partial inputs are recognized as `mm:ss` or `ss`.
 
 ### Examples
 
