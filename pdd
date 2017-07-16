@@ -134,6 +134,11 @@ License: GPLv3
 Webpage: https://github.com/jarun/pdd
 ''' % _VERSION_)
 
+    # Help
+    def print_help(self, file=None):
+        super(ExtendedArgumentParser, self).print_help(file)
+        self.print_extended_help(file)
+
 
 def parse_args(args=None, namespace=None):
     '''Parse arguments/options.
