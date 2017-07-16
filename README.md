@@ -27,6 +27,7 @@ There are times you want to check how old you are (in years, months, days) or ho
 - calculate date difference
 - calculate time difference
 - show current date, time and timezone
+- calculate diff from *today* and *now*
 - minimal dependencies
 
 ### Installation
@@ -109,11 +110,11 @@ optional arguments:
 
         $ pdd -t 5:80:75 6:17:33
 
-5. Calculate diff from today:
+5. Calculate diff from **today**:
 
         $ pdd 15 Jan 2015
 
-6. Calculate diff from now:
+6. Calculate diff from **now**:
 
         $ pdd 24:00:00
         $ pdd 0
