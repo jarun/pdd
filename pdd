@@ -20,7 +20,6 @@
 import argparse
 import calendar
 from datetime import date
-from datetime import datetime
 from dateutil.relativedelta import relativedelta
 import sys
 import time
@@ -32,18 +31,47 @@ monthdict = {name.lower(): num
 _VERSION_ = '1.0'  # current program version
 
 
-def is_int(string):
-    '''Check if a string is a digit
+def is_int(arg):
+    '''Check if arg is a digit
 
-    :param string: input string
+    :param arg: input string
     :return: True on success, False on exception
     '''
 
     try:
-        int(string)
+        int(arg)
         return True
     except Exception:
         return False
+
+
+def gethms(h, m, s):
+    '''Convert empty string to 0 and return hour, min, sec'''
+
+    if h == '':
+        h = 0
+    if m == '':
+        m = 0
+    if s == '':
+        s = 0
+
+    return h, m, s
+
+
+def gettime(arg):
+    '''Parse and return hour, min, sec'''
+
+    lst = arg.split(':')
+    n = len(lst)
+
+    if n == 3:
+        return lst[0], lst[1], lst[2]
+    if n == 2:
+        return 0, lst[0], lst[1]
+    if n == 1:
+        return 0, 0, lst[0]
+
+    return None, None, None
 
 
 class ExtendedArgumentParser(argparse.ArgumentParser):
@@ -90,14 +118,15 @@ def parse_args(args=None, namespace=None):
            help='calculate date difference')
     addarg('-t', dest='time', nargs=2, metavar=('hh:mm:ss', 'hh:mm:ss'),
            help='calculate time difference')
-    addarg('-l', dest='long', nargs=2,
-           metavar=('yyyy:mm:dd:hh:mm:ss', 'yyyy:mm:dd:hh:mm:ss'),
-           help='calculate datetime difference')
 
     # Show help and exit if no arguments
     if len(sys.argv) < 2:
-        #argparser.print_help(sys.stderr)
-        print('%s %s' % (datetime.now(), time.localtime().tm_zone))
+        # argparser.print_help(sys.stderr)
+        t = time.localtime()
+        print('%s, %02d %s %d %02d:%02d:%02d %s' % (
+                calendar.day_abbr[t.tm_wday],
+                t.tm_mday, calendar.month_abbr[t.tm_mon], t.tm_year,
+                t.tm_hour, t.tm_min, t.tm_sec, t.tm_zone))
         sys.exit(1)
 
     return argparser.parse_args(args, namespace)
@@ -124,10 +153,28 @@ def main():
 
             delta = d0 - d1
             rdelta = relativedelta(d0, d1)
-            print('%dY %dM %dD'
+            print('%dy %dm %dd'
                   % (rdelta.years, rdelta.months, rdelta.days))
-            print('%dD' % delta.days)
-        except ValueError as e:
+            print('%dd' % delta.days)
+        except (ValueError, KeyError) as e:
+            print(e)
+
+    if args.time is not None:
+        try:
+            h, m, s = gettime(args.time[0])
+            h, m, s = gethms(h, m, s)
+            t0 = int(h) * 3600 + int(m) * 60 + int(s)
+
+            h, m, s = gettime(args.time[1])
+            h, m, s = gethms(h, m, s)
+            t1 = int(h) * 3600 + int(m) * 60 + int(s)
+
+            m, s = divmod(abs(t0 - t1), 60)
+            h, m = divmod(m, 60)
+
+            print('%02d:%02d:%02d' % (h, m, s))
+            print('%ds' % abs(t0 - t1))
+        except (ValueError, TypeError) as e:
             print(e)
 
 
