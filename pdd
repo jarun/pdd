@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 #
-# Date diff calculator.
+# Date, time diff calculator.
 #
 # Copyright © 2017 Arun Prakash Jana <engineerarun@gmail.com>
 #
@@ -97,7 +97,7 @@ Webpage: https://github.com/jarun/pdd
 
 
 def parse_args(args=None, namespace=None):
-    '''Parse imgp arguments/options.
+    '''Parse arguments/options.
     Parameters
     ----------
     args : list, optional
