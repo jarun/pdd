@@ -147,9 +147,7 @@ def main():
                       int(args.date[3]))
 
             if (d0 < d1):
-                _d = d1
-                d1 = d0
-                d0 = _d
+                d0, d1 = d1, d0
 
             delta = d0 - d1
             rdelta = relativedelta(d0, d1)
