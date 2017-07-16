@@ -20,6 +20,7 @@
 import argparse
 import calendar
 from datetime import date
+from datetime import datetime
 from dateutil.relativedelta import relativedelta
 import sys
 import time
@@ -43,6 +44,26 @@ def is_int(arg):
         return True
     except Exception:
         return False
+
+
+def getdate(lst):
+    '''Return a date from list in dd mmm yyyy format'''
+
+    return date(int(lst[2]), int(lst[1])
+                if is_int(lst[1]) else monthdict[lst[1].lower()],
+                int(lst[0]))
+
+
+def showdatediff(d0, d1):
+    '''Show absolute difference between two dates'''
+
+    if (d0 < d1):
+        d0, d1 = d1, d0
+
+    delta = d0 - d1
+    rdelta = relativedelta(d0, d1)
+    print('%dy %dm %dd' % (rdelta.years, rdelta.months, rdelta.days))
+    print('%dd' % delta.days)
 
 
 def gethms(h, m, s):
@@ -74,6 +95,29 @@ def gettime(arg):
     return None, None, None
 
 
+def checktime(h, m, s):
+    '''Run validity check on input'''
+
+    if int(h) < 0:
+        return False
+    if int(m) < 0:
+        return False
+    if int(s) < 0:
+        return False
+
+    return True
+
+
+def showtimediff(t0, t1):
+    '''Show absolute difference between two timestamps'''
+
+    m, s = divmod(abs(t0 - t1), 60)
+    h, m = divmod(m, 60)
+
+    print('%02d:%02d:%02d' % (h, m, s))
+    print('%ds' % abs(t0 - t1))
+
+
 class ExtendedArgumentParser(argparse.ArgumentParser):
     '''Extend classic argument parser'''
 
@@ -89,11 +133,6 @@ Copyright © 2017 Arun Prakash Jana <engineerarun@gmail.com>
 License: GPLv3
 Webpage: https://github.com/jarun/pdd
 ''' % _VERSION_)
-
-    # Help
-    def print_help(self, file=None):
-        super(ExtendedArgumentParser, self).print_help(file)
-        self.print_extended_help(file)
 
 
 def parse_args(args=None, namespace=None):
@@ -118,10 +157,10 @@ def parse_args(args=None, namespace=None):
            help='calculate date difference')
     addarg('-t', dest='time', nargs=2, metavar=('hh:mm:ss', 'hh:mm:ss'),
            help='calculate time difference')
+    addarg('keywords', nargs='*', help='difference from today or now')
 
     # Show help and exit if no arguments
     if len(sys.argv) < 2:
-        # argparser.print_help(sys.stderr)
         t = time.localtime()
         print('%s, %02d %s %d %02d:%02d:%02d %s' % (
                 calendar.day_abbr[t.tm_wday],
@@ -137,43 +176,53 @@ def main():
 
     if args.date is not None:
         try:
-            d0 = date(int(args.date[2]), int(args.date[1])
-                      if is_int(args.date[1])
-                      else monthdict[args.date[1].lower()],
-                      int(args.date[0]))
-            d1 = date(int(args.date[5]), int(args.date[4])
-                      if is_int(args.date[4])
-                      else monthdict[args.date[4].lower()],
-                      int(args.date[3]))
+            d0 = getdate(args.date[:3])
+            d1 = getdate(args.date[3:])
 
-            if (d0 < d1):
-                d0, d1 = d1, d0
-
-            delta = d0 - d1
-            rdelta = relativedelta(d0, d1)
-            print('%dy %dm %dd'
-                  % (rdelta.years, rdelta.months, rdelta.days))
-            print('%dd' % delta.days)
+            showdatediff(d0, d1)
         except (ValueError, KeyError) as e:
-            print(e)
+            print('error: ' + str(e))
 
     if args.time is not None:
         try:
             h, m, s = gettime(args.time[0])
             h, m, s = gethms(h, m, s)
+            if not checktime(h, m, s):
+                raise ValueError('negative value')
             t0 = int(h) * 3600 + int(m) * 60 + int(s)
 
             h, m, s = gettime(args.time[1])
             h, m, s = gethms(h, m, s)
+            if not checktime(h, m, s):
+                raise ValueError('negative value')
             t1 = int(h) * 3600 + int(m) * 60 + int(s)
 
-            m, s = divmod(abs(t0 - t1), 60)
-            h, m = divmod(m, 60)
-
-            print('%02d:%02d:%02d' % (h, m, s))
-            print('%ds' % abs(t0 - t1))
+            showtimediff(t0, t1)
         except (ValueError, TypeError) as e:
-            print(e)
+            print('error: ' + str(e))
+
+    if len(args.keywords):
+        try:
+            if len(args.keywords) == 3:
+                d0 = getdate(args.keywords)
+                today = datetime.now().date()
+
+                showdatediff(d0, today)
+            elif len(args.keywords) == 1:
+                h, m, s = gettime(args.keywords[0])
+                h, m, s = gethms(h, m, s)
+                if not checktime(h, m, s):
+                    raise ValueError('negative value')
+                t0 = int(h) * 3600 + int(m) * 60 + int(s)
+
+                now = datetime.now().time()
+                secs = now.hour * 3600 + now.minute * 60 + now.second
+
+                showtimediff(t0, secs)
+            else:
+                print('keywords can be [dd mmm yyyy] OR [hh:mm:ss]')
+        except (ValueError) as e:
+            print('error: ' + str(e))
 
 
 if __name__ == '__main__':

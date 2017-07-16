@@ -2,13 +2,15 @@
 .SH NAME
 pdd \- Date, time difference calculator.
 .SH SYNOPSIS
-.B pdd [OPTIONS]
+.B pdd [OPTIONS] [KEYWORDS ...]
 .SH DESCRIPTION
 .B pdd
 (python3 date diff) is a small utility to calculate date and time difference. It shows the current date, time and timezone if no program arguments are passed.
 .PP
 .B Operational notes
 .PP
+- Time is in 24-hr format.
+.br
 - Month can be specified as month number (e.g. Jan - 1, Dec - 12).
 .br
 - The absolute difference is shown. Argument order is ignored.
@@ -53,11 +55,28 @@ Show current date, time and timezone:
 .EE
 .PP
 .IP 4. 4
-Specify time will roll-over:
+Specify time with roll-over:
 .PP
 .EX
 .IP
 .B $ pdd -t 5:80:75 6:17:33
+.EE
+.PP
+.IP 5. 4
+Calculate diff from today:
+.PP
+.EX
+.IP
+.B $ pdd 15 Jan 2015
+.EE
+.PP
+.IP 6. 4
+Calculate diff from now:
+.PP
+.EX
+.IP
+.B $ pdd 24:00:00
+.B $ pdd 0
 .SH AUTHORS
 Arun Prakash Jana <engineerarun@gmail.com>
 .SH HOME

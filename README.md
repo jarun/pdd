@@ -33,9 +33,9 @@ There are times you want to check how old you are (in years, months, days) or ho
 
 #### Dependencies
 
-`pdd` requires Python 3.5 (or later) and the *dateutil* module.
+`pdd` requires Python 3.5 (or later) and the `dateutil` module.
 
-To install dateutil on Ubuntu, run:
+To install `dateutil` on Ubuntu, run:
 
     $ sudo apt-get install python3-dateutil
 
@@ -69,18 +69,23 @@ To remove, run:
 
 ```
 usage: pdd [-h] [-d dd mmm yyyy dd mmm yyyy] [-t hh:mm:ss hh:mm:ss]
+           [keywords [keywords ...]]
 
 Date, time difference calculator.
 
+positional arguments:
+  keywords              difference from today or now
+
 optional arguments:
--h, --help            show this help message and exit
--d dd mmm yyyy dd mmm yyyy
-                      calculate date difference
--t hh:mm:ss hh:mm:ss  calculate time difference
+  -h, --help            show this help message and exit
+  -d dd mmm yyyy dd mmm yyyy
+                        calculate date difference
+  -t hh:mm:ss hh:mm:ss  calculate time difference
 ```
 
 #### Operational notes
 
+- Time is in 24-hr format.
 - Month can be specified as month number (e.g. Jan - 1, Dec - 12).
 - The absolute difference is shown. Argument order is ignored.
 - The end date is excluded in date difference calculations.
@@ -100,9 +105,18 @@ optional arguments:
 
         $ pdd
 
-4. Specify time will roll-over:
+4. Specify time with roll-over:
 
         $ pdd -t 5:80:75 6:17:33
+
+5. Calculate diff from today:
+
+        $ pdd 15 Jan 2015
+
+6. Calculate diff from now:
+
+        $ pdd 24:00:00
+        $ pdd 0
 
 ### Copyright
 
