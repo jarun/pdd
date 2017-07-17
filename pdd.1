@@ -40,6 +40,9 @@ Show the difference between two dates.
 .TP
 .BI "-t" " hh:mm:ss hh:mm:ss"
 Show the difference between two timestamps.
+.TP
+.BI "--add"
+Add a duration or timespan to date (/today) or time (/now).
 .SH EXAMPLES
 .PP
 .IP 1. 4
@@ -89,6 +92,38 @@ Calculate diff from \fBnow\fR:
 .IP
 .B $ pdd 24:00:00
 .B $ pdd 0
+.EE
+.PP
+.IP 7. 4
+Add a duration (1 day, 2 months, 3 years) to 28 Feb, 2000:
+.PP
+.EX
+.IP
+.B $ pdd -d 28 FEB 2000 1 2 3 --add
+.EE
+.PP
+.IP 8. 4
+Add a timespan (1 hour 2 mins 3 secs) to 23:45:37:
+.PP
+.EX
+.IP
+.B $ pdd -t 23:45:37 1:2:3 --add
+.EE
+.PP
+.IP 9. 4
+Add a duration (1 day, 2 months, 3 years) to \fBtoday\fR:
+.PP
+.EX
+.IP
+.B $ pdd 1 2 3 --add
+.EE
+.PP
+.IP 10. 4
+Add a timespan (1 hour 2 minutes 3 seconds) to \fBnow\fR:
+.PP
+.EX
+.IP
+.B $ pdd 1:2:3 --add
 .SH AUTHORS
 Arun Prakash Jana <engineerarun@gmail.com>
 .SH HOME

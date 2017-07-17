@@ -69,19 +69,22 @@ To remove, run:
 #### cmdline options
 
 ```
-usage: pdd [-h] [-d dd mmm yyyy dd mmm yyyy] [-t hh:mm:ss hh:mm:ss]
+usage: pdd [-h] [-d dd mmm yyyy [dd mmm yyyy | d m y]]
+           [-t hh:mm:ss [hh:mm:ss | h:m:s]] [--add] [--sub]
            [keywords [keywords ...]]
 
 Date, time difference calculator.
 
 positional arguments:
-  keywords              difference from today or now
+  keywords              diff/add/subtract from today or now
 
 optional arguments:
   -h, --help            show this help message and exit
-  -d dd mmm yyyy dd mmm yyyy
+  -d dd mmm yyyy [dd mmm yyyy | d m y]
                         calculate date difference
-  -t hh:mm:ss hh:mm:ss  calculate time difference
+  -t hh:mm:ss [hh:mm:ss | h:m:s]
+                        calculate time difference
+  --add                 add to date (/today) or time (/now)
 ```
 
 #### Operational notes
@@ -118,6 +121,22 @@ optional arguments:
 
         $ pdd 24:00:00
         $ pdd 0
+
+7. Add a duration (1 day, 2 months, 3 years) to 28 Feb, 2000:
+
+        $ pdd -d 28 FEB 2000 1 2 3 --add
+
+8. Add a timespan (1 hour 2 mins 3 secs) to 23:45:37:
+
+        $ pdd -t 23:45:37 1:2:3 --add
+
+9. Add a duration (1 day, 2 months, 3 years) to **today**:
+
+        $ pdd 1 2 3 --add
+
+10. Add a timespan (1 hour 2 minutes 3 seconds) to **now**:
+
+        $ pdd 1:2:3 --add
 
 ### Copyright
 
