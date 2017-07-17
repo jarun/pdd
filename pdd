@@ -121,8 +121,13 @@ def showtimediff(t0, t1):
 
     m, s = divmod(abs(t0 - t1), 60)
     h, m = divmod(m, 60)
+    d, h = divmod(h, 24)
 
-    print('%02d:%02d:%02d' % (h, m, s))
+    if d > 0:
+        print('day %d, %02d:%02d:%02d' % (d, h, m, s))
+    else:
+        print('%02d:%02d:%02d' % (h, m, s))
+
     print('%ds' % abs(t0 - t1))
 
 
