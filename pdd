@@ -132,13 +132,26 @@ def showtimediff(t0, t1):
 
 
 def showtimesum(t0, t1):
-    '''Show absolute difference between two timestamps'''
+    '''Show sum of a timestamp and a timeslice'''
 
     m, s = divmod(t0 + t1, 60)
     h, m = divmod(m, 60)
     d, h = divmod(h, 24)
 
     if d > 0:
+        print('day %d, %02d:%02d:%02d' % (d, h, m, s))
+    else:
+        print('%02d:%02d:%02d' % (h, m, s))
+
+
+def showtimesub(t0, t1):
+    '''Subtract and show timeslice from timestamp'''
+
+    m, s = divmod(t0 - t1, 60)
+    h, m = divmod(m, 60)
+    d, h = divmod(h, 24)
+
+    if d < 0:
         print('day %d, %02d:%02d:%02d' % (d, h, m, s))
     else:
         print('%02d:%02d:%02d' % (h, m, s))
@@ -210,15 +223,27 @@ def parse_args(args=None, namespace=None):
 def main():
     args = parse_args()
 
+    if args.add and args.sub:
+        print('error: cannot add and subtract simultaneously')
+        sys.exit(1)
+
     if args.date is not None:
         try:
             d0 = getdate(args.date[:3])
+
             if args.add:
                 if not validdata(args.date[3], args.date[4], args.date[5]):
                     raise ValueError('negative value')
 
                 d0 += getreldate(args.date[3:])
-                print('%02d %s %d' % (d0.day, calendar.month_abbr[d0.month],
+                print('%02d %s %04d' % (d0.day, calendar.month_abbr[d0.month],
+                                      d0.year))
+            elif args.sub:
+                if not validdata(args.date[3], args.date[4], args.date[5]):
+                    raise ValueError('negative value')
+
+                d0 -= getreldate(args.date[3:])
+                print('%02d %s %04d' % (d0.day, calendar.month_abbr[d0.month],
                                       d0.year))
             else:
                 d1 = getdate(args.date[3:])
@@ -242,6 +267,8 @@ def main():
 
             if args.add:
                 showtimesum(t0, t1)
+            if args.sub:
+                showtimesub(t0, t1)
             else:
                 showtimediff(t0, t1)
         except (ValueError, TypeError) as e:
@@ -251,9 +278,23 @@ def main():
         try:
             if len(args.keywords) == 3:
                 today = datetime.now().date()
+
                 if args.add:
+                    if not validdata(args.keywords[0], args.keywords[1],
+                                     args.keywords[1]):
+                        raise ValueError('negative value')
+
                     today += getreldate(args.keywords)
-                    print('%02d %s %d' % (today.day,
+                    print('%02d %s %04d' % (today.day,
+                                          calendar.month_abbr[today.month],
+                                          today.year))
+                elif args.sub:
+                    if not validdata(args.keywords[0], args.keywords[1],
+                                     args.keywords[2]):
+                        raise ValueError('negative value')
+
+                    today -= getreldate(args.keywords)
+                    print('%02d %s %04d' % (today.day,
                                           calendar.month_abbr[today.month],
                                           today.year))
                 else:
@@ -271,6 +312,8 @@ def main():
 
                 if args.add:
                     showtimesum(t0, secs)
+                if args.sub:
+                    showtimesub(secs, t0)
                 else:
                     showtimediff(t0, secs)
             else:

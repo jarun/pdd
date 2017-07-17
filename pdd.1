@@ -13,6 +13,8 @@ pdd \- date, time difference calculator.
 .br
 - calculate time difference
 .br
+- add, subtract duration (timeslice) to/from date (time)
+.br
 - calculate diff from \fItoday\fR and \fInow\fR
 .br
 - show current date, time and timezone
@@ -42,7 +44,10 @@ Show the difference between two dates.
 Show the difference between two timestamps.
 .TP
 .BI "--add"
-Add a duration or timespan to date (/today) or time (/now).
+Add a duration or timeslice to date (/today) or time (/now).
+.TP
+.BI "--sub"
+Subtract a duration or timeslice from date (/today) or time (/now).
 .SH EXAMPLES
 .PP
 .IP 1. 4
@@ -103,7 +108,7 @@ Add a duration (1 day, 2 months, 3 years) to 28 Feb, 2000:
 .EE
 .PP
 .IP 8. 4
-Add a timespan (1 hour 2 mins 3 secs) to 23:45:37:
+Add a timeslice (1 hour 2 mins 3 secs) to 23:45:37:
 .PP
 .EX
 .IP
@@ -119,11 +124,43 @@ Add a duration (1 day, 2 months, 3 years) to \fBtoday\fR:
 .EE
 .PP
 .IP 10. 4
-Add a timespan (1 hour 2 minutes 3 seconds) to \fBnow\fR:
+Add a timeslice (1 hour 2 minutes 3 seconds) to \fBnow\fR:
 .PP
 .EX
 .IP
 .B $ pdd 1:2:3 --add
+.EE
+.PP
+.IP 11. 4
+Subtract a duration (1 day) from 1 Mar, 2000:
+.PP
+.EX
+.IP
+.B $ pdd -d 01 Mar 2000 1 0 0 --sub
+.EE
+.PP
+.IP 12. 4
+Subtract a timeslice (1 sec) from midnight:
+.PP
+.EX
+.IP
+.B $ pdd -t 00:00:00 0:0:1 --sub
+.EE
+.PP
+.IP 13. 4
+Subtract a duration (1 day, 2 months, 3 years) from **today**:
+.PP
+.EX
+.IP
+.B $ pdd 1 2 3 --sub
+.EE
+.PP
+.IP 14. 4
+Subtract a timeslice (1 hour 2 minutes 3 seconds) from **now**:
+.PP
+.EX
+.IP
+.B $ pdd 1:2:3 --sub
 .SH AUTHORS
 Arun Prakash Jana <engineerarun@gmail.com>
 .SH HOME

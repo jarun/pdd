@@ -27,6 +27,7 @@ There are times you want to check how old you are (in years, months, days) or ho
 - calculate date difference
 - calculate time difference
 - calculate diff from *today* and *now*
+- add, subtract duration (timeslice) to/from date (time)
 - show current date, time and timezone
 - minimal dependencies
 
@@ -85,6 +86,7 @@ optional arguments:
   -t hh:mm:ss [hh:mm:ss | h:m:s]
                         calculate time difference
   --add                 add to date (/today) or time (/now)
+  --sub                 subtract from date (/today) or time (/now)
 ```
 
 #### Operational notes
@@ -126,7 +128,7 @@ optional arguments:
 
         $ pdd -d 28 FEB 2000 1 2 3 --add
 
-8. Add a timespan (1 hour 2 mins 3 secs) to 23:45:37:
+8. Add a timeslice (1 hour 2 mins 3 secs) to 23:45:37:
 
         $ pdd -t 23:45:37 1:2:3 --add
 
@@ -134,9 +136,25 @@ optional arguments:
 
         $ pdd 1 2 3 --add
 
-10. Add a timespan (1 hour 2 minutes 3 seconds) to **now**:
+10. Add a timeslice (1 hour 2 minutes 3 seconds) to **now**:
 
         $ pdd 1:2:3 --add
+
+11. Subtract a duration (1 day) from 1 Mar, 2000:
+
+        $ pdd -d 01 Mar 2000 1 0 0 --sub
+
+12. Subtract a timeslice (1 sec) from midnight:
+
+        $ pdd -t 00:00:00 0:0:1 --sub
+
+13. Subtract a duration (1 day, 2 months, 3 years) from **today**:
+
+        $ pdd 1 2 3 --sub
+
+14. Subtract a timeslice (1 hour 2 minutes 3 seconds) from **now**:
+
+        $ pdd 1:2:3 --sub
 
 ### Copyright
 
