@@ -1,0 +1,11 @@
+pdd v1.0
+2017-07-19
+
+What's in?
+- Calculate date difference
+- Calculate time difference
+- Calculate diff from *today* and *now*
+- Add, subtract duration (timeslice) to/from date (time)
+- Show current date, time and timezone
+
+-------------------------------------------------------------------------------
