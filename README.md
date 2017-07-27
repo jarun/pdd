@@ -1,6 +1,10 @@
-# pdd
+<h1 align="center">pdd</h1>
 
-Date, time difference calculator.
+<p align="center">
+<a href="https://github.com/jarun/pdd/releases/latest"><img src="https://img.shields.io/github/release/jarun/pdd.svg?maxAge=600" alt="Latest release" /></a>
+<a href="https://aur.archlinux.org/packages/pdd"><img src="https://img.shields.io/aur/version/pdd.svg?maxAge=600" alt="AUR" /></a>
+<a href="https://github.com/jarun/pdd/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-GPLv3-yellow.svg?maxAge=2592000" alt="License" /></a>
+</p>
 
 There are times you want to check how old you are (in years, months, days) or how long you need to wait for the next flash sale... `pdd` (python3 date diff) is a small cmdline utility to calculate date and time difference. If no program arguments are specified it shows the current date, time and timezone.
 
