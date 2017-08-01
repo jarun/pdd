@@ -18,10 +18,9 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import argparse
-import calendar
+import calendar as cal
 from datetime import date
 from datetime import datetime
-from datetime import timedelta
 from dateutil.relativedelta import relativedelta
 import sys
 import time
@@ -29,7 +28,7 @@ import time
 # Globals
 
 monthdict = {name.lower(): num
-             for num, name in enumerate(calendar.month_abbr) if num}
+             for num, name in enumerate(cal.month_abbr) if num}
 _VERSION_ = '1.0'  # current program version
 
 
@@ -212,8 +211,8 @@ def parse_args(args=None, namespace=None):
     if len(sys.argv) < 2:
         t = time.localtime()
         print('%s %02d %s %d %02d:%02d:%02d %s' % (
-                calendar.day_abbr[t.tm_wday],
-                t.tm_mday, calendar.month_abbr[t.tm_mon], t.tm_year,
+                cal.day_abbr[t.tm_wday],
+                t.tm_mday, cal.month_abbr[t.tm_mon], t.tm_year,
                 t.tm_hour, t.tm_min, t.tm_sec, t.tm_zone))
         sys.exit(1)
 
@@ -236,15 +235,15 @@ def main():
                     raise ValueError('negative value')
 
                 d0 += getreldate(args.date[3:])
-                print('%02d %s %04d' % (d0.day, calendar.month_abbr[d0.month],
-                                      d0.year))
+                print('%s %02d %s %04d' % (cal.day_abbr[d0.weekday()], d0.day,
+                                           cal.month_abbr[d0.month], d0.year))
             elif args.sub:
                 if not validdata(args.date[3], args.date[4], args.date[5]):
                     raise ValueError('negative value')
 
                 d0 -= getreldate(args.date[3:])
-                print('%02d %s %04d' % (d0.day, calendar.month_abbr[d0.month],
-                                      d0.year))
+                print('%s %02d %s %04d' % (cal.day_abbr[d0.weekday()], d0.day,
+                                           cal.month_abbr[d0.month], d0.year))
             else:
                 d1 = getdate(args.date[3:])
                 showdatediff(d0, d1)
@@ -285,18 +284,20 @@ def main():
                         raise ValueError('negative value')
 
                     today += getreldate(args.keywords)
-                    print('%02d %s %04d' % (today.day,
-                                          calendar.month_abbr[today.month],
-                                          today.year))
+                    print('%s %02d %s %04d' % (cal.day_abbr[today.weekday()],
+                                               today.day,
+                                               cal.month_abbr[today.month],
+                                               today.year))
                 elif args.sub:
                     if not validdata(args.keywords[0], args.keywords[1],
                                      args.keywords[2]):
                         raise ValueError('negative value')
 
                     today -= getreldate(args.keywords)
-                    print('%02d %s %04d' % (today.day,
-                                          calendar.month_abbr[today.month],
-                                          today.year))
+                    print('%s %02d %s %04d' % (cal.day_abbr[today.weekday()],
+                                               today.day,
+                                               cal.month_abbr[today.month],
+                                               today.year))
                 else:
                     d0 = getdate(args.keywords)
                     showdatediff(today, d0)
