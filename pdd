@@ -205,6 +205,8 @@ def parse_args(args=None, namespace=None):
            help='add to date (/today) or time (/now)')
     addarg('--sub', action='store_true',
            help='subtract from date (/today) or time (/now)')
+    addarg('--day', nargs=3, metavar=('dd', 'mmm', 'yyyy'),
+           help='show day of the week on a date')
     addarg('keywords', nargs='*', help='diff/add/subtract from today or now')
 
     # Show help and exit if no arguments
@@ -271,6 +273,13 @@ def main():
             else:
                 showtimediff(t0, t1)
         except (ValueError, TypeError) as e:
+            print('error: ' + str(e))
+
+    if args.day is not None:
+        try:
+            d = getdate(args.day)
+            print('%s' % cal.day_abbr[d.weekday()])
+        except (ValueError, KeyError) as e:
             print('error: ' + str(e))
 
     if len(args.keywords):

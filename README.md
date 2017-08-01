@@ -91,6 +91,7 @@ optional arguments:
                         calculate time difference
   --add                 add to date (/today) or time (/now)
   --sub                 subtract from date (/today) or time (/now)
+  --day dd mmm yyyy     show day of the week on a date
 ```
 
 #### Operational notes
@@ -159,6 +160,10 @@ optional arguments:
 14. Subtract a timeslice (1 hour 2 minutes 3 seconds) from **now**:
 
         $ pdd 1:2:3 --sub
+
+15. Show the day of the week on 15 Jan 2014:
+
+        $ pdd --day 15 Jan 2014
 
 ### Copyright
 

@@ -48,6 +48,9 @@ Add a duration or timeslice to date (/today) or time (/now).
 .TP
 .BI "--sub"
 Subtract a duration or timeslice from date (/today) or time (/now).
+.TP
+.BI "--day" " dd mmm yyyy"
+Show the day of the week on a date.
 .SH EXAMPLES
 .PP
 .IP 1. 4
@@ -148,7 +151,7 @@ Subtract a timeslice (1 sec) from midnight:
 .EE
 .PP
 .IP 13. 4
-Subtract a duration (1 day, 2 months, 3 years) from **today**:
+Subtract a duration (1 day, 2 months, 3 years) from \fBtoday\fR:
 .PP
 .EX
 .IP
@@ -156,11 +159,19 @@ Subtract a duration (1 day, 2 months, 3 years) from **today**:
 .EE
 .PP
 .IP 14. 4
-Subtract a timeslice (1 hour 2 minutes 3 seconds) from **now**:
+Subtract a timeslice (1 hour 2 minutes 3 seconds) from \fBnow\fR:
 .PP
 .EX
 .IP
 .B $ pdd 1:2:3 --sub
+.EE
+.PP
+.IP 15. 4
+Show the day of the week on 15 Jan 2014:
+.PP
+.EX
+.IP
+.B $ pdd --day 15 Jan 2014
 .SH AUTHORS
 Arun Prakash Jana <engineerarun@gmail.com>
 .SH HOME
