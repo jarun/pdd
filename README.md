@@ -19,6 +19,8 @@ There are times you want to check how old you are (in years, months, days) or ho
 - [Installation](#installation)
   - [Dependencies](#dependencies)
   - [Installing from this repository](#installing-from-this-repository)
+    - [Release packages](#release-packages)
+    - [Installation from source](#installation-from-source)
     - [Running as a standalone utility](#running-as-a-standalone-utility)
 - [Usage](#usage)
   - [cmdline options](#cmdline-options)
@@ -51,7 +53,13 @@ or, using pip3:
 
 #### Installing from this repository
 
-If you have git installed, clone this repository. Otherwise download the latest [stable release](https://github.com/jarun/pdd/releases/latest) or [development version](https://github.com/jarun/pdd/archive/master.zip) (*risky*).
+##### Release packages
+
+Packages for Arch Linux, CentOS, Fedora and Ubuntu are available with the [latest stable release](https://github.com/jarun/pdd/releases/latest).
+
+##### Installation from source
+
+If you have git installed, clone this repository. Otherwise download the latest [latest stable release](https://github.com/jarun/pdd/releases/latest) or [development version](https://github.com/jarun/pdd/archive/master.zip) (*risky*).
 
 Install to default location (`/usr/local`):
 
@@ -78,7 +86,7 @@ usage: pdd [-h] [-d dd mmm yyyy [dd mmm yyyy | d m y]]
            [-t hh:mm:ss [hh:mm:ss | h:m:s]] [--add] [--sub]
            [keywords [keywords ...]]
 
-Date, time difference calculator.
+Tiny date, time difference calculator.
 
 positional arguments:
   keywords              diff/add/subtract from today or now

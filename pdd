@@ -193,7 +193,7 @@ def parse_args(args=None, namespace=None):
     '''
 
     argparser = ExtendedArgumentParser(
-                    description='Date, time difference calculator.')
+                    description='Tiny date, time difference calculator.')
     addarg = argparser.add_argument
     addarg('-d', dest='date', nargs=6,
            metavar=('dd', 'mmm', 'yyyy', '[dd', 'mmm', 'yyyy | d m y]'),
