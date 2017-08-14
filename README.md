@@ -18,10 +18,10 @@ There are times you want to check how old you are (in years, months, days) or ho
 - [Features](#features)
 - [Installation](#installation)
   - [Dependencies](#dependencies)
-  - [Installing from this repository](#installing-from-this-repository)
-    - [Release packages](#release-packages)
-    - [Installation from source](#installation-from-source)
-    - [Running as a standalone utility](#running-as-a-standalone-utility)
+  - [From a package manager](#from-a-package-manager)
+  - [Release packages](#release-packages)
+  - [From source](#from-source)
+  - [Running standalone](#running-standalone)
 - [Usage](#usage)
   - [cmdline options](#cmdline-options)
   - [Operational notes](#operational-notes)
@@ -51,13 +51,16 @@ or, using pip3:
 
     $ sudo pip3 install dateutil
 
-#### Installing from this repository
+#### From a package manager
 
-##### Release packages
+- [AUR](https://aur.archlinux.org/packages/pdd/)
+- [Ubuntu PPA](https://launchpad.net/~twodopeshaggy/+archive/ubuntu/jarun/)
+
+#### Release packages
 
 Packages for Arch Linux, CentOS, Fedora and Ubuntu are available with the [latest stable release](https://github.com/jarun/pdd/releases/latest).
 
-##### Installation from source
+#### From source
 
 If you have git installed, clone this repository. Otherwise download the latest [latest stable release](https://github.com/jarun/pdd/releases/latest) or [development version](https://github.com/jarun/pdd/archive/master.zip) (*risky*).
 
@@ -69,9 +72,9 @@ To remove, run:
 
     $ sudo make uninstall
 
-`PREFIX` is supported. You may need to use `sudo` with `PREFIX` depending on your permissions on destination directory.
+`PREFIX` is supported, in case you want to install to a different location.
 
-##### Running as a standalone utility
+#### Running standalone
 
 `pdd` is a standalone utility. From the containing directory, run:
 
