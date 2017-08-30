@@ -1,0 +1,49 @@
+name: pdd
+metadata:
+  maintainer: Arun Prakash Jana <engineerarun@gmail.com>
+  license: GPLv3
+  summary: Tiny date, time diff calculator.
+  homepage: https://github.com/jarun/pdd
+commands:
+  install:
+    - make PREFIX="/usr" install DESTDIR="${BP_DESTDIR}"
+packages:
+  archlinux:
+    builddeps:
+      - make
+    deps:
+      - python-dateutil
+      - python
+  fedora26:
+    builddeps:
+      - make
+    deps:
+      - python3-dateutil
+      - python3
+  centos7.3:
+    builddeps:
+      - make
+    deps:
+      - python-dateutil
+      - python
+    commands:
+      pre:
+        - yum install epel-release
+  ubuntu16.04:
+    builddeps:
+      - make
+    deps:
+      - python3-dateutil
+      - python3
+  ubuntu17.10:
+    builddeps:
+      - make
+    deps:
+      - python3-dateutil
+      - python3
+  debian9:
+    builddeps:
+      - make
+    deps:
+      - python3-dateutil
+      - python3
