@@ -268,7 +268,7 @@ def main():
 
             if args.add:
                 showtimesum(t0, t1)
-            if args.sub:
+            elif args.sub:
                 showtimesub(t0, t1)
             else:
                 showtimediff(t0, t1)
@@ -322,7 +322,7 @@ def main():
 
                 if args.add:
                     showtimesum(t0, secs)
-                if args.sub:
+                elif args.sub:
                     showtimesub(secs, t0)
                 else:
                     showtimediff(t0, secs)
