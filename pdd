@@ -142,6 +142,8 @@ def showtimesum(t0, t1):
     else:
         print('%02d:%02d:%02d' % (h, m, s))
 
+    print('%ds' % (t0 + t1))
+
 
 def showtimesub(t0, t1):
     '''Subtract and show timeslice from timestamp'''
@@ -154,6 +156,8 @@ def showtimesub(t0, t1):
         print('day %d, %02d:%02d:%02d' % (d, h, m, s))
     else:
         print('%02d:%02d:%02d' % (h, m, s))
+
+    print('%ds' % (t0 - t1))
 
 
 class ExtendedArgumentParser(argparse.ArgumentParser):
