@@ -138,7 +138,7 @@ def showtimesum(t0, t1):
     d, h = divmod(h, 24)
 
     if d > 0:
-        print('day %d, %02d:%02d:%02d' % (d, h, m, s))
+        print('%d day(s) later, %02d:%02d:%02d' % (d, h, m, s))
     else:
         print('%02d:%02d:%02d' % (h, m, s))
 
@@ -153,7 +153,7 @@ def showtimesub(t0, t1):
     d, h = divmod(h, 24)
 
     if d < 0:
-        print('day %d, %02d:%02d:%02d' % (d, h, m, s))
+        print('%d day(s) earlier, %02d:%02d:%02d' % (abs(d), h, m, s))
     else:
         print('%02d:%02d:%02d' % (h, m, s))
 
