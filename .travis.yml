@@ -9,8 +9,11 @@ dist: trusty
 before_install:
   - "pip install --upgrade setuptools"
   - "pip install --upgrade pip"
+  - "pip install --upgrade python-dateutil"
+  - "pip install --upgrade logilab-common"
+  - "pip install --upgrade pytest"
 script:
-  - make test
+  - pytest ./test.py;
 before_deploy:
   - sudo apt-get update -qy
   - sudo apt-get install -qy python3 python3-pip

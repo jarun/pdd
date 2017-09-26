@@ -51,7 +51,7 @@ To install `dateutil` on Ubuntu, run:
 
 or, using pip3:
 
-    $ sudo pip3 install dateutil
+    $ sudo pip3 install python-dateutil
 
 #### From a package manager
 
