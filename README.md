@@ -6,6 +6,7 @@
 <a href="https://packages.debian.org/search?keywords=pdd&searchon=names"><img src="https://img.shields.io/badge/debian-10+-blue.svg?maxAge=2592000" alt="Debian Buster+" /></a>
 <a href="https://launchpad.net/~twodopeshaggy/+archive/ubuntu/jarun/"><img src="https://img.shields.io/badge/ubuntu-PPA-blue.svg?maxAge=2592000" alt="Ubuntu PPA" /></a>
 <a href="https://github.com/jarun/pdd/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-GPLv3-yellow.svg?maxAge=2592000" alt="License" /></a>
+<a href="https://travis-ci.org/jarun/pdd"><img src="https://travis-ci.org/jarun/pdd.svg?branch=master" alt="Build Status" /></a>
 </p>
 
 There are times you want to check how old you are (in years, months, days) or how long you need to wait for the next flash sale... `pdd` (python3 date diff) is a small cmdline utility to calculate date and time difference. If no program arguments are specified it shows the current date, time and timezone.
