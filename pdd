@@ -29,7 +29,7 @@ import time
 
 monthdict = {name.lower(): num
              for num, name in enumerate(cal.month_abbr) if num}
-_VERSION_ = '1.0'  # current program version
+_VERSION_ = '1.1'  # current program version
 
 
 def is_int(arg):

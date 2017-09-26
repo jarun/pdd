@@ -1,3 +1,14 @@
+pdd v1.1
+2017-09-26
+
+What's in?
+- Short weekday in date add, sub
+- Day of the week on a date
+- Show seconds in timeslice add and subtract
+- Show number of earlier or later in timeslice add and subtract
+
+-------------------------------------------------------------------------------
+
 pdd v1.0
 2017-07-19
 

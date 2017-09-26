@@ -89,6 +89,7 @@ To remove, run:
 ```
 usage: pdd [-h] [-d dd mmm yyyy [dd mmm yyyy | d m y]]
            [-t hh:mm:ss [hh:mm:ss | h:m:s]] [--add] [--sub]
+           [--day dd mmm yyyy]
            [keywords [keywords ...]]
 
 Tiny date, time difference calculator.
