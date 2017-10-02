@@ -121,40 +121,40 @@ optional arguments:
 
 1. Calculate date diff:
 
-        $ pdd -d 3 jul 1983 15 1 2014
+       $ pdd -d 3 jul 1983 15 1 2014
 
 2. Calculate time diff:
 
-        $ pdd -t 45:50 6:17:33
+       $ pdd -t 45:50 6:17:33
 
 3. Show current date, time and timezone:
 
-        $ pdd
+       $ pdd
 
 4. Specify time with roll-over:
 
-        $ pdd -t 5:80:75 6:17:33
+       $ pdd -t 5:80:75 6:17:33
 
 5. Calculate diff from **today**:
 
-        $ pdd 15 Jan 2015
+       $ pdd 15 Jan 2015
 
 6. Calculate diff from **now**:
 
-        $ pdd 24:00:00
-        $ pdd 0
+       $ pdd 24:00:00
+       $ pdd 0
 
 7. Add a duration (1 day, 2 months, 3 years) to 28 Feb, 2000:
 
-        $ pdd -d 28 FEB 2000 1 2 3 --add
+       $ pdd -d 28 FEB 2000 1 2 3 --add
 
 8. Add a timeslice (1 hour 2 mins 3 secs) to 23:45:37:
 
-        $ pdd -t 23:45:37 1:2:3 --add
+       $ pdd -t 23:45:37 1:2:3 --add
 
 9. Add a duration (1 day, 2 months, 3 years) to **today**:
 
-        $ pdd 1 2 3 --add
+       $ pdd 1 2 3 --add
 
 10. Add a timeslice (1 hour 2 minutes 3 seconds) to **now**:
 
