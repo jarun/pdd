@@ -59,12 +59,12 @@ or, using pip3:
 
 - [AUR](https://aur.archlinux.org/packages/pdd/)
 - [Debian](https://packages.debian.org/search?keywords=pdd&searchon=names&exact=1)
-- [Ubuntu](http://packages.ubuntu.com/search?keywords=pdd&searchon=names&exact=1)
+- [Ubuntu](https://packages.ubuntu.com/search?keywords=pdd&searchon=names&exact=1)
 - [Ubuntu PPA](https://launchpad.net/~twodopeshaggy/+archive/ubuntu/jarun/)
 
 #### Release packages
 
-Packages for Arch Linux, CentOS, Fedora and Ubuntu are available with the [latest stable release](https://github.com/jarun/pdd/releases/latest).
+Packages for Arch Linux, CentOS, Debian, Fedora and Ubuntu are available with the [latest stable release](https://github.com/jarun/pdd/releases/latest).
 
 #### From source
 
