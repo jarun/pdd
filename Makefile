@@ -21,3 +21,6 @@ uninstall:
 	rm -f $(BINDIR)/pdd
 	rm -f $(MANDIR)/pdd.1.gz
 	rm -rf $(DOCDIR)
+
+check:
+	@python3 -m pytest test.py
