@@ -65,6 +65,7 @@ or, using pip3:
 - [NixOS](https://github.com/NixOS/nixpkgs/tree/master/pkgs/tools/misc/pdd) (`nix-env -i pdd`)
 - [Ubuntu](https://packages.ubuntu.com/search?keywords=pdd&searchon=names&exact=1) (`apt-get install pdd`)
 - [Ubuntu PPA](https://launchpad.net/~twodopeshaggy/+archive/ubuntu/jarun/) (`apt-get install pdd`)
+- [Void Linux](https://github.com/voidlinux/void-packages/tree/master/srcpkgs/pdd) (`xbps-install -S pdd`)
 
 #### Release packages
 
