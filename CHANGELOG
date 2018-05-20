@@ -1,3 +1,13 @@
+pdd v1.2
+2018-05-20
+
+What's in?
+- Countdown timer (option `-c`)
+- Millisecond resolution stopwatch (option `-s`)
+- Packages generated for several new distros
+
+-------------------------------------------------------------------------------
+
 pdd v1.1
 2017-09-26
 
