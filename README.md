@@ -10,7 +10,7 @@
 <a href="https://travis-ci.org/jarun/pdd"><img src="https://travis-ci.org/jarun/pdd.svg?branch=master" alt="Build Status" /></a>
 </p>
 
-There are times you want to check how old you are (in years, months, days) or how long you need to wait for the next flash sale or the number of days left of your notice period in your current job. `pdd` (Python3 Date Diff) is a small cmdline utility to calculate date and time difference. It can also be used as a timer. If no program arguments are specified it shows the current date, time and timezone.
+`pdd` (Python3 Date Diff) is a small cmdline utility to calculate date and time difference as simply as possible. It can also be used as a timer. If no program arguments are specified it shows the current date, time and timezone.
 
 *Love smart and efficient terminal utilities? Explore my repositories. Buy me a cup of coffee if they help you.*
 
