@@ -22,6 +22,7 @@ import calendar as cal
 from datetime import date
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
+import os
 import sys
 import time
 
@@ -211,9 +212,10 @@ def parse_args(args=None, namespace=None):
            help='subtract from date (/today) or time (/now)')
     addarg('--day', nargs=3, metavar=('dd', 'mmm', 'yyyy'),
            help='show day of the week on a date')
+    addarg('--tm', dest='timer', action='store_true', help='start a ms resolution stopwatch')
     addarg('keywords', nargs='*', help='diff/add/subtract from today or now')
 
-    # Show help and exit if no arguments
+    # Show `date` and exit if no arguments
     if len(sys.argv) < 2:
         t = time.localtime()
         print('%s %02d %s %d %02d:%02d:%02d %s' % (
@@ -232,6 +234,7 @@ def main():
         print('error: cannot add and subtract simultaneously')
         sys.exit(1)
 
+    # Handle date add, sub or show date diff
     if args.date is not None:
         try:
             d0 = getdate(args.date[:3])
@@ -256,6 +259,7 @@ def main():
         except (ValueError, KeyError) as e:
             print('error: ' + str(e))
 
+    # Handle time add, sub or show time diff
     if args.time is not None:
         try:
             h, m, s = gettime(args.time[0])
@@ -279,6 +283,7 @@ def main():
         except (ValueError, TypeError) as e:
             print('error: ' + str(e))
 
+    # Show day of the week on the given date
     if args.day is not None:
         try:
             d = getdate(args.day)
@@ -289,6 +294,7 @@ def main():
     if len(args.keywords):
         try:
             if len(args.keywords) == 3:
+                # Show date diff from today
                 today = datetime.now().date()
 
                 if args.add:
@@ -315,6 +321,7 @@ def main():
                     d0 = getdate(args.keywords)
                     showdatediff(today, d0)
             elif len(args.keywords) == 1:
+                # Show time diff from now
                 h, m, s = gettime(args.keywords[0])
                 h, m, s = gethms(h, m, s)
                 if not validdata(h, m, s):
@@ -334,6 +341,21 @@ def main():
                 print('keywords can be [dd mmm yyyy] OR [hh:mm:ss]')
         except (ValueError) as e:
             print('error: ' + str(e))
+
+    # Stopwatch
+    if args.timer:
+        t0 = time.time()
+        # os.system('clear')
+        os.system('setterm -cursor off')
+        print('Ctrl-C to stop')
+        try:
+            while True:
+                t1 = time.time()
+                print('\r{0:.3f}s'.format(t1 - t0), end='')
+                time.sleep(1e-3)
+        except KeyboardInterrupt:
+            print('\r{0:.3f}s'.format(t1 - t0), end='', flush=True)
+            os.system('setterm -cursor on')
 
 
 if __name__ == '__main__':
