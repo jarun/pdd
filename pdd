@@ -84,7 +84,7 @@ def gethms(h, m, s):
     if s == '':
         s = 0
 
-    return h, m, s
+    return int(h), int(m), int(s)
 
 
 def gettime(arg):
@@ -106,11 +106,16 @@ def gettime(arg):
 def validdata(h, m, s):
     '''Run validity check on input'''
 
-    if int(h) < 0:
+    if h < 0 or m < 0 or s < 0:
         return False
-    if int(m) < 0:
-        return False
-    if int(s) < 0:
+
+    return True
+
+
+def validargs(h, m, s):
+    '''Run validity check on input'''
+
+    if int(h) < 0 or int(m) < 0 or int(s) < 0:
         return False
 
     return True
@@ -212,7 +217,10 @@ def parse_args(args=None, namespace=None):
            help='subtract from date (/today) or time (/now)')
     addarg('--day', nargs=3, metavar=('dd', 'mmm', 'yyyy'),
            help='show day of the week on a date')
-    addarg('--tm', dest='timer', action='store_true', help='start a ms resolution stopwatch')
+    addarg('-c', dest='timer', nargs=1, metavar=('hh:mm:ss'),
+           help='start a countdown timer')
+    addarg('-s', dest='stopwatch', action='store_true',
+           help='start a millisecond resolution stopwatch')
     addarg('keywords', nargs='*', help='diff/add/subtract from today or now')
 
     # Show `date` and exit if no arguments
@@ -240,14 +248,14 @@ def main():
             d0 = getdate(args.date[:3])
 
             if args.add:
-                if not validdata(args.date[3], args.date[4], args.date[5]):
+                if not validargs(args.date[3], args.date[4], args.date[5]):
                     raise ValueError('negative value')
 
                 d0 += getreldate(args.date[3:])
                 print('%s %02d %s %04d' % (cal.day_abbr[d0.weekday()], d0.day,
                                            cal.month_abbr[d0.month], d0.year))
             elif args.sub:
-                if not validdata(args.date[3], args.date[4], args.date[5]):
+                if not validargs(args.date[3], args.date[4], args.date[5]):
                     raise ValueError('negative value')
 
                 d0 -= getreldate(args.date[3:])
@@ -266,13 +274,13 @@ def main():
             h, m, s = gethms(h, m, s)
             if not validdata(h, m, s):
                 raise ValueError('negative value')
-            t0 = int(h) * 3600 + int(m) * 60 + int(s)
+            t0 = h * 3600 + m * 60 + s
 
             h, m, s = gettime(args.time[1])
             h, m, s = gethms(h, m, s)
             if not validdata(h, m, s):
                 raise ValueError('negative value')
-            t1 = int(h) * 3600 + int(m) * 60 + int(s)
+            t1 = h * 3600 + m * 60 + s
 
             if args.add:
                 showtimesum(t0, t1)
@@ -298,7 +306,7 @@ def main():
                 today = datetime.now().date()
 
                 if args.add:
-                    if not validdata(args.keywords[0], args.keywords[1],
+                    if not validargs(args.keywords[0], args.keywords[1],
                                      args.keywords[1]):
                         raise ValueError('negative value')
 
@@ -308,7 +316,7 @@ def main():
                                                cal.month_abbr[today.month],
                                                today.year))
                 elif args.sub:
-                    if not validdata(args.keywords[0], args.keywords[1],
+                    if not validargs(args.keywords[0], args.keywords[1],
                                      args.keywords[2]):
                         raise ValueError('negative value')
 
@@ -326,7 +334,7 @@ def main():
                 h, m, s = gethms(h, m, s)
                 if not validdata(h, m, s):
                     raise ValueError('negative value')
-                t0 = int(h) * 3600 + int(m) * 60 + int(s)
+                t0 = h * 3600 + m * 60 + s
 
                 now = datetime.now().time()
                 secs = now.hour * 3600 + now.minute * 60 + now.second
@@ -342,8 +350,36 @@ def main():
         except (ValueError) as e:
             print('error: ' + str(e))
 
+    # Countdown timer
+    if args.timer is not None:
+        h, m, s = gettime(args.timer[0])
+        h, m, s = gethms(h, m, s)
+        if not validdata(h, m, s):
+            raise ValueError('negative value')
+
+        print('Ctrl-C to stop')
+        os.system('setterm -cursor off')
+        try:
+            while True:
+                print('\r{0:02d}h {1:02d}m {2:02d}s'.format(h, m, s), end='')
+                s = s - 1
+                if s == -1:
+                    s = 59
+                    m = m - 1
+                    if m == -1:
+                        m = 59
+                        h = h - 1
+                        if h == -1:
+                            h = m = s = 0
+                            break
+                time.sleep(1)
+        except KeyboardInterrupt:
+            print('\r{0:02d}h {1:02d}m {2:02d}s '.format(h, m, s), end='', flush=True)
+        finally:
+            os.system('setterm -cursor on')
+
     # Stopwatch
-    if args.timer:
+    if args.stopwatch:
         t0 = time.time()
         # os.system('clear')
         os.system('setterm -cursor off')
@@ -354,7 +390,8 @@ def main():
                 print('\r{0:.3f}s'.format(t1 - t0), end='')
                 time.sleep(1e-3)
         except KeyboardInterrupt:
-            print('\r{0:.3f}s'.format(t1 - t0), end='', flush=True)
+            print('\r{0:.3f}s '.format(t1 - t0), end='', flush=True)
+        finally:
             os.system('setterm -cursor on')
 
 
