@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 #
-# Date, time diff calculator.
+# Date, time difference calculator with a stopwatch and countdown timer.
 #
 # Copyright © 2017 Arun Prakash Jana <engineerarun@gmail.com>
 #
@@ -203,7 +203,7 @@ def parse_args(args=None, namespace=None):
     '''
 
     argparser = ExtendedArgumentParser(
-                    description='Tiny date, time difference calculator.')
+                    description='Tiny date, time difference calculator with timers.')
     addarg = argparser.add_argument
     addarg('-d', dest='date', nargs=6,
            metavar=('dd', 'mmm', 'yyyy', '[dd', 'mmm', 'yyyy | d m y]'),

@@ -1,11 +1,11 @@
 .TH "PDD" "1" "26 Sep 2017" "Version 1.1" "User Commands"
 .SH NAME
-pdd \- Tiny date, time difference calculator.
+pdd \- Tiny date, time difference calculator with timers.
 .SH SYNOPSIS
 .B pdd [OPTIONS] [KEYWORDS ...]
 .SH DESCRIPTION
 .B pdd
-(python3 date diff) is a small utility to calculate date and time difference. If no program arguments are specified it shows the current date, time and timezone.
+(python3 date diff) is a small utility to calculate date and time difference. It can also be used as a timer. If no program arguments are specified it shows the current date, time and timezone.
 .PP
 .B Features
 .PP
@@ -16,6 +16,10 @@ pdd \- Tiny date, time difference calculator.
 - add, subtract duration (timeslice) to/from date (time)
 .br
 - calculate diff from \fItoday\fR and \fInow\fR
+.br
+- countdown timer
+.br
+- millisecond resolution stopwatch
 .br
 - show current date, time and timezone
 .br
@@ -51,6 +55,12 @@ Subtract a duration or timeslice from date (/today) or time (/now).
 .TP
 .BI "--day" " dd mmm yyyy"
 Show the day of the week on a date.
+.TP
+.BI "-c" " hh:mm:ss"
+Set a countdown timer with duration in hours, minutes and seconds.
+.TP
+.BI "-s"
+Start a millisecond resolution stopwatch.
 .SH EXAMPLES
 .PP
 .IP 1. 4

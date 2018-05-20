@@ -10,7 +10,7 @@
 <a href="https://travis-ci.org/jarun/pdd"><img src="https://travis-ci.org/jarun/pdd.svg?branch=master" alt="Build Status" /></a>
 </p>
 
-There are times you want to check how old you are (in years, months, days) or how long you need to wait for the next flash sale or the number of days left of your notice period in your current job. `pdd` (Python3 Date Diff) is a small cmdline utility to calculate date and time difference. If no program arguments are specified it shows the current date, time and timezone.
+There are times you want to check how old you are (in years, months, days) or how long you need to wait for the next flash sale or the number of days left of your notice period in your current job. `pdd` (Python3 Date Diff) is a small cmdline utility to calculate date and time difference. It can also be used as a timer. If no program arguments are specified it shows the current date, time and timezone.
 
 *Love smart and efficient terminal utilities? Explore my repositories. Buy me a cup of coffee if they help you.*
 
@@ -40,6 +40,8 @@ There are times you want to check how old you are (in years, months, days) or ho
 - calculate time difference
 - calculate diff from *today* and *now*
 - add, subtract duration (timeslice) to/from date (time)
+- countdown timer
+- millisecond resolution stopwatch
 - show current date, time and timezone
 - minimal dependencies
 
@@ -98,10 +100,10 @@ To remove, run:
 ```
 usage: pdd [-h] [-d dd mmm yyyy [dd mmm yyyy | d m y]]
            [-t hh:mm:ss [hh:mm:ss | h:m:s]] [--add] [--sub]
-           [--day dd mmm yyyy]
+           [--day dd mmm yyyy] [-c hh:mm:ss] [-s]
            [keywords [keywords ...]]
 
-Tiny date, time difference calculator.
+Tiny date, time difference calculator with timers.
 
 positional arguments:
   keywords              diff/add/subtract from today or now
@@ -115,6 +117,8 @@ optional arguments:
   --add                 add to date (/today) or time (/now)
   --sub                 subtract from date (/today) or time (/now)
   --day dd mmm yyyy     show day of the week on a date
+  -c hh:mm:ss           start a countdown timer
+  -s                    start a millisecond resolution stopwatch
 ```
 
 #### Operational notes
