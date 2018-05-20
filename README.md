@@ -14,7 +14,9 @@
 <a href="https://asciinema.org/a/182505"><img src="https://i.imgur.com/8dD0p58.png" alt="Asciicast" width="600"/></a>
 </p>
 
-`pdd` (Python3 Date Diff) is a small cmdline utility to calculate date and time difference as simply as possible. It can also be used as a timer. If no program arguments are specified it shows the current date, time and timezone.
+`pdd` (Python3 Date Diff) is a small cmdline utility to calculate date and time difference. It can also be used as a timer. If no program arguments are specified it shows the current date, time and timezone.
+
+There are utilities and shell scripts which do what `pdd` does. However, `pdd` has been written with only one goal - simplicity. Users shouldn't have memorize anything.
 
 *Love smart and efficient terminal utilities? Explore my repositories. Buy me a cup of coffee if they help you.*
 
