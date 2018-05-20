@@ -374,7 +374,7 @@ def main():
                             break
                 time.sleep(1)
         except KeyboardInterrupt:
-            print('\r{0:02d}h {1:02d}m {2:02d}s '.format(h, m, s), end='', flush=True)
+            print('\r{0:02d}h {1:02d}m {2:02d}s  '.format(h, m, s), end='\b\b\n', flush=True)
         finally:
             os.system('setterm -cursor on')
 
@@ -390,7 +390,7 @@ def main():
                 print('\r{0:.3f}s'.format(t1 - t0), end='')
                 time.sleep(1e-3)
         except KeyboardInterrupt:
-            print('\r{0:.3f}s '.format(t1 - t0), end='', flush=True)
+            print('\r{0:.3f}s  '.format(t1 - t0), end='\b\b\n', flush=True)
         finally:
             os.system('setterm -cursor on')
 
