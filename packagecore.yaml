@@ -13,12 +13,24 @@ packages:
     deps:
       - python-dateutil
       - python
-  fedora26:
+  centos7.1:
     builddeps:
       - make
     deps:
-      - python3-dateutil
-      - python3
+      - python-dateutil
+      - python
+    commands:
+      pre:
+        - yum install epel-release
+  centos7.2:
+    builddeps:
+      - make
+    deps:
+      - python-dateutil
+      - python
+    commands:
+      pre:
+        - yum install epel-release
   centos7.3:
     builddeps:
       - make
@@ -28,6 +40,54 @@ packages:
     commands:
       pre:
         - yum install epel-release
+  debian9:
+    builddeps:
+      - make
+    deps:
+      - python3-dateutil
+      - python3
+  fedora25:
+    builddeps:
+      - make
+    deps:
+      - python3-dateutil
+      - python3
+  fedora26:
+    builddeps:
+      - make
+    deps:
+      - python3-dateutil
+      - python3
+  fedora27:
+    builddeps:
+      - make
+    deps:
+      - python3-dateutil
+      - python3
+  fedora28:
+    builddeps:
+      - make
+    deps:
+      - python3-dateutil
+      - python3
+  opensuse42.1:
+    builddeps:
+      - make
+    deps:
+      - python3-dateutil
+      - python3
+  opensuse42.2:
+    builddeps:
+      - make
+    deps:
+      - python3-dateutil
+      - python3
+  opensuse42.3:
+    builddeps:
+      - make
+    deps:
+      - python3-dateutil
+      - python3
   ubuntu16.04:
     builddeps:
       - make
@@ -40,7 +100,7 @@ packages:
     deps:
       - python3-dateutil
       - python3
-  debian9:
+  ubuntu18.04:
     builddeps:
       - make
     deps:
