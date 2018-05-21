@@ -19,7 +19,7 @@ pdd \- Tiny date, time difference calculator with timers.
 .br
 - countdown timer
 .br
-- millisecond resolution stopwatch
+- custom resolution stopwatch
 .br
 - show current date, time and timezone
 .PP
@@ -59,8 +59,8 @@ Show the day of the week on a date.
 .BI "-c" " hh:mm:ss"
 Set a countdown timer with duration in hours, minutes and seconds.
 .TP
-.BI "-s"
-Start a millisecond resolution stopwatch.
+.BI "-s" " [resolution]"
+Start a custom resolution stopwatch. \fIresolution\fR can range from 1 to 9. Default 3 for millisecond.
 .TP
 .BI "-q"
 Quiet mode for a countdown timer or stopwatch to be run in the background. The counter is shown only when \fICtrl-C\fR is pressed.

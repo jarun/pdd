@@ -47,7 +47,7 @@ There are utilities and shell scripts which do what `pdd` does. However, `pdd` h
 - calculate diff from *today* and *now*
 - add, subtract duration (timeslice) to/from date (time)
 - countdown timer
-- millisecond resolution stopwatch
+- custom resolution stopwatch
 - show current date, time and timezone
 
 ### Installation
@@ -105,7 +105,7 @@ To remove, run:
 ```
 usage: pdd [-h] [-d dd mmm yyyy [dd mmm yyyy | d m y]]
            [-t hh:mm:ss [hh:mm:ss | h:m:s]] [--add] [--sub]
-           [--day dd mmm yyyy] [-c hh:mm:ss] [-s] [-q]
+           [--day dd mmm yyyy] [-c hh:mm:ss] [-s [resolution]] [-q]
            [keywords [keywords ...]]
 
 Tiny date, time difference calculator with timers.
@@ -123,7 +123,7 @@ optional arguments:
   --sub                 subtract from date (/today) or time (/now)
   --day dd mmm yyyy     show day of the week on a date
   -c hh:mm:ss           start a countdown timer
-  -s                    start a millisecond resolution stopwatch
+  -s [resolution]       start a stopwatch (default resolution: ms)
   -q                    quiet mode for background timer/stopwatch
 ```
 

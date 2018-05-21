@@ -22,6 +22,7 @@ import calendar as cal
 from datetime import date
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
+import math
 import os
 import sys
 import time
@@ -219,8 +220,8 @@ def parse_args(args=None, namespace=None):
            help='show day of the week on a date')
     addarg('-c', dest='timer', nargs=1, metavar=('hh:mm:ss'),
            help='start a countdown timer')
-    addarg('-s', dest='stopwatch', action='store_true',
-           help='start a millisecond resolution stopwatch')
+    addarg('-s', dest='stopwatch', nargs='?', type=int, const=3, choices=range(1, 10),
+           metavar=('resolution'), help='start a stopwatch (default resolution: ms)')
     addarg('-q', dest='quiet', action='store_true',
            help='quiet mode for background timer/stopwatch')
     addarg('keywords', nargs='*', help='diff/add/subtract from today or now')
@@ -385,6 +386,8 @@ def main():
 
     # Stopwatch
     if args.stopwatch:
+        n = args.stopwatch
+        res = 10 ** (-n)
         t0 = time.time()
         # os.system('clear')
         if args.quiet is False:
@@ -394,10 +397,10 @@ def main():
             while True:
                 t1 = time.time()
                 if args.quiet is False:
-                    print('\r{0:.3f}s'.format(t1 - t0), end='')
-                time.sleep(1e-3)
+                    print('\r{1:.{0}f}s'.format(n, t1 - t0), end='')
+                time.sleep(res)
         except KeyboardInterrupt:
-            print('\r{0:.3f}s  '.format(t1 - t0), end='\b\b\n', flush=True)
+            print('\r{1:.{0}f}s  '.format(n, t1 - t0), end='\b\b\n', flush=True)
         finally:
             if args.quiet is False:
                 os.system('setterm -cursor on')
