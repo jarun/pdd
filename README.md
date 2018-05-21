@@ -105,7 +105,7 @@ To remove, run:
 ```
 usage: pdd [-h] [-d dd mmm yyyy [dd mmm yyyy | d m y]]
            [-t hh:mm:ss [hh:mm:ss | h:m:s]] [--add] [--sub]
-           [--day dd mmm yyyy] [-c hh:mm:ss] [-s]
+           [--day dd mmm yyyy] [-c hh:mm:ss] [-s] [-q]
            [keywords [keywords ...]]
 
 Tiny date, time difference calculator with timers.
@@ -124,6 +124,7 @@ optional arguments:
   --day dd mmm yyyy     show day of the week on a date
   -c hh:mm:ss           start a countdown timer
   -s                    start a millisecond resolution stopwatch
+  -q                    quiet mode for background timer/stopwatch
 ```
 
 #### Operational notes
@@ -133,6 +134,7 @@ optional arguments:
 - The absolute difference is shown. Argument order is ignored.
 - The end date is excluded in date difference calculations.
 - Hour, minute or second can be omitted. Partial inputs are recognized as `mm:ss` or `ss`.
+- The keybind to stop timers is <kbd>Ctrl-C</kbd>.
 
 ### Examples
 
@@ -196,6 +198,12 @@ optional arguments:
 15. Show the day of the week on 15 Jan 2014:
 
         $ pdd --day 15 Jan 2014
+
+16. Start a countdown timer or stopwatch in **quiet mode** in the background:
+
+        $ pdd -qs &
+        $ pdd -qc 3:0:0 &
+    To see the final counter run `fg` and press `Ctrl-C`.
 
 ### Copyright
 

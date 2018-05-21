@@ -34,6 +34,8 @@ pdd \- Tiny date, time difference calculator with timers.
 - The end date is excluded in date difference calculations.
 .br
 - Hour, minute or second can be omitted. Partial inputs are recognized as \fImm:ss\fR or \fIss\fR.
+.br
+- The keybind to stop timers is \fICtrl-C\fR.
 .SH OPTIONS
 .TP
 .BI "-h, --help"
@@ -59,6 +61,9 @@ Set a countdown timer with duration in hours, minutes and seconds.
 .TP
 .BI "-s"
 Start a millisecond resolution stopwatch.
+.TP
+.BI "-q"
+Quiet mode for a countdown timer or stopwatch to be run in the background. The counter is shown only when \fICtrl-C\fR is pressed.
 .SH EXAMPLES
 .PP
 .IP 1. 4
@@ -180,6 +185,19 @@ Show the day of the week on 15 Jan 2014:
 .EX
 .IP
 .B $ pdd --day 15 Jan 2014
+.EE
+.PP
+.IP 16. 4
+Start a countdown timer or stopwatch in \fBquiet mode\fR in the background:
+.PP
+.EX
+.IP
+.B $ pdd -qs &
+.B $ pdd -qc 3:0:0 &
+.EE
+.PP
+.IP "" 4
+To see the final counter run \fIfg\fR and press \fICtrl-C\fR.
 .SH AUTHORS
 Arun Prakash Jana <engineerarun@gmail.com>
 .SH HOME
