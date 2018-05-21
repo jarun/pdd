@@ -230,7 +230,7 @@ def parse_args(args=None, namespace=None):
                 cal.day_abbr[t.tm_wday],
                 t.tm_mday, cal.month_abbr[t.tm_mon], t.tm_year,
                 t.tm_hour, t.tm_min, t.tm_sec, t.tm_zone))
-        sys.exit(1)
+        sys.exit(0)
 
     return argparser.parse_args(args, namespace)
 
