@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-<a href="https://asciinema.org/a/182505"><img src="https://i.imgur.com/8dD0p58.png" alt="Asciicast" width="600"/></a>
+<a href="https://asciinema.org/a/182505"><img src="https://i.imgur.com/8dD0p58.png" alt="Asciicast" width="650"/></a>
 </p>
 
 `pdd` (Python3 Date Diff) is a small cmdline utility to calculate date and time difference. It can also be used as a timer. If no program arguments are specified it shows the current date, time and timezone.
@@ -42,14 +42,13 @@ There are utilities and shell scripts which do what `pdd` does. However, `pdd` h
 
 ### Features
 
-- calculate date difference
-- calculate time difference
+- easy to use, minimal dependencies
+- calculate date and time difference
 - calculate diff from *today* and *now*
 - add, subtract duration (timeslice) to/from date (time)
 - countdown timer
 - millisecond resolution stopwatch
 - show current date, time and timezone
-- minimal dependencies
 
 ### Installation
 
@@ -137,30 +136,30 @@ optional arguments:
 
 ### Examples
 
-1. Calculate date diff:
-
-       $ pdd -d 3 jul 1983 15 1 2014
-
-2. Calculate time diff:
-
-       $ pdd -t 45:50 6:17:33
-
-3. Show current date, time and timezone:
-
-       $ pdd
-
-4. Specify time with roll-over:
-
-       $ pdd -t 5:80:75 6:17:33
-
-5. Calculate diff from **today**:
+1. Calculate diff from **today**:
 
        $ pdd 15 Jan 2014
 
-6. Calculate diff from **now**:
+2. Calculate diff from **now**:
 
        $ pdd 24:00:00
        $ pdd 0
+
+3. Calculate date diff:
+
+       $ pdd -d 3 jul 1983 15 1 2014
+
+4. Calculate time diff:
+
+       $ pdd -t 45:50 6:17:33
+
+5. Show current date, time and timezone:
+
+       $ pdd
+
+6. Specify time with roll-over:
+
+       $ pdd -t 5:80:75 6:17:33
 
 7. Add a duration (1 day, 2 months, 3 years) to 28 Feb, 2000:
 

@@ -9,9 +9,9 @@ pdd \- Tiny date, time difference calculator with timers.
 .PP
 .B Features
 .PP
-- calculate date difference
+- easy to use, minimal dependencies
 .br
-- calculate time difference
+- calculate date and time difference
 .br
 - add, subtract duration (timeslice) to/from date (time)
 .br
@@ -22,8 +22,6 @@ pdd \- Tiny date, time difference calculator with timers.
 - millisecond resolution stopwatch
 .br
 - show current date, time and timezone
-.br
-- minimal dependencies
 .PP
 .B Operational notes
 .PP
@@ -64,38 +62,6 @@ Start a millisecond resolution stopwatch.
 .SH EXAMPLES
 .PP
 .IP 1. 4
-Calculate date diff:
-.PP
-.EX
-.IP
-.B $ pdd -d 3 jul 1983 15 1 2014
-.EE
-.PP
-.IP 2. 4
-Calculate time diff:
-.PP
-.EX
-.IP
-.B $ pdd -t 45:50 6:17:33
-.EE
-.PP
-.IP 3. 4
-Show current date, time and timezone:
-.PP
-.EX
-.IP
-.B $ pdd
-.EE
-.PP
-.IP 4. 4
-Specify time with roll-over:
-.PP
-.EX
-.IP
-.B $ pdd -t 5:80:75 6:17:33
-.EE
-.PP
-.IP 5. 4
 Calculate diff from \fBtoday\fR:
 .PP
 .EX
@@ -103,13 +69,45 @@ Calculate diff from \fBtoday\fR:
 .B $ pdd 15 Jan 2014
 .EE
 .PP
-.IP 6. 4
+.IP 2. 4
 Calculate diff from \fBnow\fR:
 .PP
 .EX
 .IP
 .B $ pdd 24:00:00
 .B $ pdd 0
+.EE
+.PP
+.IP 3. 4
+Calculate date diff:
+.PP
+.EX
+.IP
+.B $ pdd -d 3 jul 1983 15 1 2014
+.EE
+.PP
+.IP 4. 4
+Calculate time diff:
+.PP
+.EX
+.IP
+.B $ pdd -t 45:50 6:17:33
+.EE
+.PP
+.IP 5. 4
+Show current date, time and timezone:
+.PP
+.EX
+.IP
+.B $ pdd
+.EE
+.PP
+.IP 6. 4
+Specify time with roll-over:
+.PP
+.EX
+.IP
+.B $ pdd -t 5:80:75 6:17:33
 .EE
 .PP
 .IP 7. 4
