@@ -203,7 +203,7 @@ optional arguments:
 
         $ pdd -qs &
         $ pdd -qc 3:0:0 &
-    To see the final counter run `fg` and press `Ctrl-C`.
+    To see the final counter run `fg` and press <kbd>Ctrl-C</kbd>.
 
 ### Copyright
 
