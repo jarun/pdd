@@ -48,6 +48,7 @@ There are utilities and shell scripts which do what `pdd` does. However, `pdd` h
 - add, subtract duration (timeslice) to/from date (time)
 - countdown timer
 - custom resolution stopwatch
+- non-verbose mode for background timers
 - show current date, time and timezone
 
 ### Installation
