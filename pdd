@@ -235,10 +235,19 @@ def parse_args(args=None, namespace=None):
     # Show `date` and exit if no arguments
     if len(sys.argv) < 2:
         t = time.localtime()
-        print('%s %02d %s %d %02d:%02d:%02d %s' % (
-                cal.day_abbr[t.tm_wday],
-                t.tm_mday, cal.month_abbr[t.tm_mon], t.tm_year,
-                t.tm_hour, t.tm_min, t.tm_sec, t.tm_zone))
+
+        if os.name == 'nt' and sys.version_info < (3,6):
+            # No tm_zone in Python < v3.6 on Windows
+            print('%s %02d %s %d %02d:%02d:%02d' % (
+                   cal.day_abbr[t.tm_wday],
+                   t.tm_mday, cal.month_abbr[t.tm_mon], t.tm_year,
+                   t.tm_hour, t.tm_min, t.tm_sec))
+        else:
+            print('%s %02d %s %d %02d:%02d:%02d %s' % (
+                   cal.day_abbr[t.tm_wday],
+                   t.tm_mday, cal.month_abbr[t.tm_mon], t.tm_year,
+                   t.tm_hour, t.tm_min, t.tm_sec, t.tm_zone))
+
         sys.exit(0)
 
     return argparser.parse_args(args, namespace)
