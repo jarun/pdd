@@ -22,7 +22,6 @@ import calendar as cal
 from datetime import date
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
-import math
 import os
 import sys
 import time
@@ -171,6 +170,28 @@ def showtimesub(t0, t1):
         print('%02d:%02d:%02d' % (h, m, s))
 
     print('%ds' % (t0 - t1))
+
+
+def cursor_off():
+    if os.name != 'nt':
+        os.system('setterm -cursor off')
+    else:
+        ci = _CursorInfo()
+        handle = ctypes.windll.kernel32.GetStdHandle(-11)
+        ctypes.windll.kernel32.GetConsoleCursorInfo(handle, ctypes.byref(ci))
+        ci.visible = False
+        ctypes.windll.kernel32.SetConsoleCursorInfo(handle, ctypes.byref(ci))
+
+
+def cursor_on():
+    if os.name != 'nt':
+        os.system('setterm -cursor on')
+    else:
+        ci = _CursorInfo()
+        handle = ctypes.windll.kernel32.GetStdHandle(-11)
+        ctypes.windll.kernel32.GetConsoleCursorInfo(handle, ctypes.byref(ci))
+        ci.visible = True
+        ctypes.windll.kernel32.SetConsoleCursorInfo(handle, ctypes.byref(ci))
 
 
 class ExtendedArgumentParser(argparse.ArgumentParser):
@@ -376,14 +397,7 @@ def main():
             raise ValueError('negative value')
 
         if args.quiet is False:
-            if os.name != 'nt':
-                os.system('setterm -cursor off')
-            else:
-                ci = _CursorInfo()
-                handle = ctypes.windll.kernel32.GetStdHandle(-11)
-                ctypes.windll.kernel32.GetConsoleCursorInfo(handle, ctypes.byref(ci))
-                ci.visible = False
-                ctypes.windll.kernel32.SetConsoleCursorInfo(handle, ctypes.byref(ci))
+            cursor_off()
 
         try:
             while True:
@@ -404,14 +418,7 @@ def main():
             print('\r{0:02d}h {1:02d}m {2:02d}s  '.format(h, m, s), end='\b\b\n', flush=True)
         finally:
             if args.quiet is False:
-                if os.name != 'nt':
-                    os.system('setterm -cursor on')
-                else:
-                    ci = _CursorInfo()
-                    handle = ctypes.windll.kernel32.GetStdHandle(-11)
-                    ctypes.windll.kernel32.GetConsoleCursorInfo(handle, ctypes.byref(ci))
-                    ci.visible = True
-                    ctypes.windll.kernel32.SetConsoleCursorInfo(handle, ctypes.byref(ci))
+                cursor_on()
 
     # Stopwatch
     if args.stopwatch:
@@ -420,7 +427,7 @@ def main():
         t0 = time.time()
         # os.system('clear')
         if args.quiet is False:
-            os.system('setterm -cursor off')
+            cursor_off()
 
         try:
             while True:
@@ -432,7 +439,7 @@ def main():
             print('\r{1:.{0}f}s  '.format(n, t1 - t0), end='\b\b\n', flush=True)
         finally:
             if args.quiet is False:
-                os.system('setterm -cursor on')
+                cursor_on()
 
 
 if __name__ == '__main__':
