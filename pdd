@@ -402,7 +402,7 @@ def main():
         try:
             while True:
                 if args.quiet is False:
-                    print('\r{0:02d}h {1:02d}m {2:02d}s'.format(h, m, s), end='')
+                    print('\r\x1b[7m{0:02d}h {1:02d}m {2:02d}s\x1b[0m'.format(h, m, s), end='')
                 s = s - 1
                 if s == -1:
                     s = 59
@@ -415,8 +415,9 @@ def main():
                             break
                 time.sleep(1)
         except KeyboardInterrupt:
-            print('\r{0:02d}h {1:02d}m {2:02d}s  '.format(h, m, s), end='\b\b\n', flush=True)
+            pass
         finally:
+            print('\r\x1b[7m{0:02d}h {1:02d}m {2:02d}s\x1b[0m  '.format(h, m, s), end='\b\b\n', flush=True)
             if args.quiet is False:
                 cursor_on()
 
@@ -433,10 +434,10 @@ def main():
             while True:
                 t1 = time.time()
                 if args.quiet is False:
-                    print('\r{1:.{0}f}s'.format(n, t1 - t0), end='')
+                    print('\r\x1b[7m{1:.{0}f}s\x1b[0m'.format(n, t1 - t0), end='')
                 time.sleep(res)
         except KeyboardInterrupt:
-            print('\r{1:.{0}f}s  '.format(n, t1 - t0), end='\b\b\n', flush=True)
+            print('\r\x1b[7m{1:.{0}f}s\x1b[0m  '.format(n, t1 - t0), end='\b\b\n', flush=True)
         finally:
             if args.quiet is False:
                 cursor_on()
