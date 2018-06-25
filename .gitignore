@@ -1,2 +1,4 @@
 .pytest_cache*
 __pycache__*
+pdd.egg-info
+dist
