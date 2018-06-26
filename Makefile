@@ -12,7 +12,7 @@ install:
 	install -m755 -d $(MANDIR)
 	install -m755 -d $(DOCDIR)
 	gzip -c pdd.1 > pdd.1.gz
-	install -m755 pdd $(BINDIR)
+	install -m755 pdd.py $(BINDIR)/pdd
 	install -m644 pdd.1.gz $(MANDIR)
 	install -m644 README.md $(DOCDIR)
 	rm -f pdd.1.gz
