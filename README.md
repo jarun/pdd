@@ -105,10 +105,10 @@ To remove, run:
 #### cmdline options
 
 ```
-usage: pdd [-h] [-d dd mmm yyyy [dd mmm yyyy | d m y]]
-           [-t hh:mm:ss [hh:mm:ss | h:m:s]] [--add] [--sub]
-           [--day dd mmm yyyy] [-c hh:mm:ss] [-s [resolution]] [-q]
-           [keywords [keywords ...]]
+usage: pdd.py [-h] [-d yyyy mmm dd [yyyy mmm dd | y m d]]
+              [-t hh:mm:ss [hh:mm:ss | h:m:s]] [--add] [--sub]
+              [--day yyyy mmm dd] [-c hh:mm:ss] [-s [resolution]] [-q]
+              [keywords [keywords ...]]
 
 Tiny date, time difference calculator with timers.
 
@@ -117,13 +117,13 @@ positional arguments:
 
 optional arguments:
   -h, --help            show this help message and exit
-  -d dd mmm yyyy [dd mmm yyyy | d m y]
+  -d yyyy mmm dd [yyyy mmm dd | y m d]
                         calculate date difference
   -t hh:mm:ss [hh:mm:ss | h:m:s]
                         calculate time difference
   --add                 add to date (/today) or time (/now)
   --sub                 subtract from date (/today) or time (/now)
-  --day dd mmm yyyy     show day of the week on a date
+  --day yyyy mmm dd     show day of the week on a date
   -c hh:mm:ss           start a countdown timer
   -s [resolution]       start a stopwatch (default resolution: ms)
   -q                    quiet mode for background timer/stopwatch
@@ -131,8 +131,8 @@ optional arguments:
 
 #### Operational notes
 
+- ISO 8601 format. Month can be specified as month number (e.g. Jan - 1, Dec - 12).
 - Time is in 24-hr format.
-- Month can be specified as month number (e.g. Jan - 1, Dec - 12).
 - The absolute difference is shown. Argument order is ignored.
 - The end date is excluded in date difference calculations.
 - Hour, minute or second can be omitted. Partial inputs are recognized as `mm:ss` or `ss`.
@@ -142,7 +142,7 @@ optional arguments:
 
 1. Calculate diff from **today**:
 
-       $ pdd 15 Jan 2014
+       $ pdd 2014 Jan 15
 
 2. Calculate diff from **now**:
 
@@ -151,7 +151,7 @@ optional arguments:
 
 3. Calculate date diff:
 
-       $ pdd -d 3 jul 1983 15 1 2014
+       $ pdd -d 1983 jul 3 2014 1 15
 
 4. Calculate time diff:
 
@@ -165,17 +165,17 @@ optional arguments:
 
        $ pdd -t 5:80:75 6:17:33
 
-7. Add a duration (1 day, 2 months, 3 years) to 28 Feb, 2000:
+7. Add a duration (3 years, 2 months, 1 day) to 28 Feb, 2000:
 
-       $ pdd -d 28 FEB 2000 1 2 3 --add
+       $ pdd -d 2000 FEB 28 3 2 1 --add
 
 8. Add a timeslice (1 hour 2 mins 3 secs) to 23:45:37:
 
        $ pdd -t 23:45:37 1:2:3 --add
 
-9. Add a duration (1 day, 2 months, 3 years) to **today**:
+9. Add a duration (3 years, 2 months, 1 day) to **today**:
 
-       $ pdd 1 2 3 --add
+       $ pdd 3 2 1 --add
 
 10. Add a timeslice (1 hour 2 minutes 3 seconds) to **now**:
 
@@ -183,15 +183,15 @@ optional arguments:
 
 11. Subtract a duration (1 day) from 1 Mar, 2000:
 
-        $ pdd -d 01 Mar 2000 1 0 0 --sub
+        $ pdd -d 2000 Mar 01 0 0 1 --sub
 
 12. Subtract a timeslice (1 sec) from midnight:
 
         $ pdd -t 00:00:00 0:0:1 --sub
 
-13. Subtract a duration (1 day, 2 months, 3 years) from **today**:
+13. Subtract a duration (3 years, 2 months, 1 day) from **today**:
 
-        $ pdd 1 2 3 --sub
+        $ pdd 3 2 1 --sub
 
 14. Subtract a timeslice (1 hour 2 minutes 3 seconds) from **now**:
 
@@ -199,7 +199,7 @@ optional arguments:
 
 15. Show the day of the week on 15 Jan 2014:
 
-        $ pdd --day 15 Jan 2014
+        $ pdd --day 2014 Jan 15
 
 16. Start a countdown timer or stopwatch in **quiet mode** in the background:
 

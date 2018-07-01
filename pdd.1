@@ -27,9 +27,9 @@ pdd \- Tiny date, time difference calculator with timers.
 .PP
 .B Operational notes
 .PP
-- Time is in 24-hr format.
+- ISO 8601 format. Month can be specified as month number (e.g. Jan - 1, Dec - 12).
 .br
-- Month can be specified as month number (e.g. Jan - 1, Dec - 12).
+- Time is in 24-hr format.
 .br
 - The absolute difference is shown. Argument order is ignored.
 .br
@@ -43,7 +43,7 @@ pdd \- Tiny date, time difference calculator with timers.
 .BI "-h, --help"
 Show help text and exit.
 .TP
-.BI "-d" " dd mmm yyyy [dd mmm yyyy | d m y]"
+.BI "-d" " yyyy mmm dd [yyyy mmm dd | y m d]"
 Calculate date difference.
 .TP
 .BI "-t" " hh:mm:ss [hh:mm:ss | h:m:s]"
@@ -55,7 +55,7 @@ Add a duration or timeslice to date (/today) or time (/now).
 .BI "--sub"
 Subtract a duration or timeslice from date (/today) or time (/now).
 .TP
-.BI "--day" " dd mmm yyyy"
+.BI "--day" " yyyy mmm dd"
 Show the day of the week on a date.
 .TP
 .BI "-c" " hh:mm:ss"
@@ -73,7 +73,7 @@ Calculate diff from \fBtoday\fR:
 .PP
 .EX
 .IP
-.B $ pdd 15 Jan 2014
+.B $ pdd 2014 Jan 15
 .EE
 .PP
 .IP 2. 4
@@ -90,7 +90,7 @@ Calculate date diff:
 .PP
 .EX
 .IP
-.B $ pdd -d 3 jul 1983 15 1 2014
+.B $ pdd -d 1983 jul 3 2014 1 15
 .EE
 .PP
 .IP 4. 4
@@ -118,11 +118,11 @@ Specify time with roll-over:
 .EE
 .PP
 .IP 7. 4
-Add a duration (1 day, 2 months, 3 years) to 28 Feb, 2000:
+Add a duration (3 years, 2 months, 1 day) to 28 Feb, 2000:
 .PP
 .EX
 .IP
-.B $ pdd -d 28 FEB 2000 1 2 3 --add
+.B $ pdd -d 2000 FEB 28 3 2 1 --add
 .EE
 .PP
 .IP 8. 4
@@ -134,11 +134,11 @@ Add a timeslice (1 hour 2 mins 3 secs) to 23:45:37:
 .EE
 .PP
 .IP 9. 4
-Add a duration (1 day, 2 months, 3 years) to \fBtoday\fR:
+Add a duration (3 years, 2 months, 1 day) to \fBtoday\fR:
 .PP
 .EX
 .IP
-.B $ pdd 1 2 3 --add
+.B $ pdd 3 2 1 --add
 .EE
 .PP
 .IP 10. 4
@@ -154,7 +154,7 @@ Subtract a duration (1 day) from 1 Mar, 2000:
 .PP
 .EX
 .IP
-.B $ pdd -d 01 Mar 2000 1 0 0 --sub
+.B $ pdd -d 2000 Mar 01 0 0 1 --sub
 .EE
 .PP
 .IP 12. 4
@@ -166,11 +166,11 @@ Subtract a timeslice (1 sec) from midnight:
 .EE
 .PP
 .IP 13. 4
-Subtract a duration (1 day, 2 months, 3 years) from \fBtoday\fR:
+Subtract a duration (3 years, 2 months, 1 day) from \fBtoday\fR:
 .PP
 .EX
 .IP
-.B $ pdd 1 2 3 --sub
+.B $ pdd 3 2 1 --sub
 .EE
 .PP
 .IP 14. 4
@@ -186,7 +186,7 @@ Show the day of the week on 15 Jan 2014:
 .PP
 .EX
 .IP
-.B $ pdd --day 15 Jan 2014
+.B $ pdd --day 2014 Jan 15
 .EE
 .PP
 .IP 16. 4

@@ -54,18 +54,15 @@ def is_int(arg):
 
 
 def getdate(lst):
-    '''Return a date from list in dd mmm yyyy format'''
+    '''Return a date from list in yyyy mmm dd format'''
 
-    return date(int(lst[2]), int(lst[1])
-                if is_int(lst[1]) else monthdict[lst[1].lower()],
-                int(lst[0]))
+    return date(int(lst[0]), int(lst[1]) if is_int(lst[1]) else monthdict[lst[1].lower()], int(lst[2]))
 
 
 def getreldate(lst):
-    '''Return a relative calendar duration from list in dd mmm yyyy format'''
+    '''Return a relative calendar duration from list in yyyy mmm dd format'''
 
-    return relativedelta(days=int(lst[0]), months=int(lst[1]),
-                         years=int(lst[2]))
+    return relativedelta(years=int(lst[0]), months=int(lst[1]), days=int(lst[2]))
 
 
 def showdatediff(d0, d1):
@@ -234,7 +231,7 @@ def parse_args(args=None, namespace=None):
                     description='Tiny date, time difference calculator with timers.')
     addarg = argparser.add_argument
     addarg('-d', dest='date', nargs=6,
-           metavar=('dd', 'mmm', 'yyyy', '[dd', 'mmm', 'yyyy | d m y]'),
+           metavar=('yyyy', 'mmm', 'dd', '[yyyy', 'mmm', 'dd | y m d]'),
            help='calculate date difference')
     addarg('-t', dest='time', nargs=2,
            metavar=('hh:mm:ss', '[hh:mm:ss | h:m:s]'),
@@ -243,7 +240,7 @@ def parse_args(args=None, namespace=None):
            help='add to date (/today) or time (/now)')
     addarg('--sub', action='store_true',
            help='subtract from date (/today) or time (/now)')
-    addarg('--day', nargs=3, metavar=('dd', 'mmm', 'yyyy'),
+    addarg('--day', nargs=3, metavar=('yyyy', 'mmm', 'dd'),
            help='show day of the week on a date')
     addarg('-c', dest='timer', nargs=1, metavar=('hh:mm:ss'),
            help='start a countdown timer')
@@ -261,12 +258,12 @@ def parse_args(args=None, namespace=None):
             # No tm_zone in Python < v3.6 on Windows
             print('%s %02d %s %d %02d:%02d:%02d' % (
                    cal.day_abbr[t.tm_wday],
-                   t.tm_mday, cal.month_abbr[t.tm_mon], t.tm_year,
+                   t.tm_year, cal.month_abbr[t.tm_mon], t.tm_mday,
                    t.tm_hour, t.tm_min, t.tm_sec))
         else:
             print('%s %02d %s %d %02d:%02d:%02d %s' % (
                    cal.day_abbr[t.tm_wday],
-                   t.tm_mday, cal.month_abbr[t.tm_mon], t.tm_year,
+                   t.tm_year, cal.month_abbr[t.tm_mon], t.tm_mday,
                    t.tm_hour, t.tm_min, t.tm_sec, t.tm_zone))
 
         sys.exit(0)
@@ -291,15 +288,13 @@ def main():
                     raise ValueError('negative value')
 
                 d0 += getreldate(args.date[3:])
-                print('%s %02d %s %04d' % (cal.day_abbr[d0.weekday()], d0.day,
-                                           cal.month_abbr[d0.month], d0.year))
+                print('%s %04d %s %02d' % (cal.day_abbr[d0.weekday()], d0.year, cal.month_abbr[d0.month], d0.day))
             elif args.sub:
                 if not validargs(args.date[3], args.date[4], args.date[5]):
                     raise ValueError('negative value')
 
                 d0 -= getreldate(args.date[3:])
-                print('%s %02d %s %04d' % (cal.day_abbr[d0.weekday()], d0.day,
-                                           cal.month_abbr[d0.month], d0.year))
+                print('%s %04d %s %02d' % (cal.day_abbr[d0.weekday()], d0.year, cal.month_abbr[d0.month], d0.day))
             else:
                 d1 = getdate(args.date[3:])
                 showdatediff(d0, d1)
@@ -350,20 +345,13 @@ def main():
                         raise ValueError('negative value')
 
                     today += getreldate(args.keywords)
-                    print('%s %02d %s %04d' % (cal.day_abbr[today.weekday()],
-                                               today.day,
-                                               cal.month_abbr[today.month],
-                                               today.year))
+                    print('%s %04d %s %02d' % (cal.day_abbr[today.weekday()], today.year, cal.month_abbr[today.month], today.day))
                 elif args.sub:
-                    if not validargs(args.keywords[0], args.keywords[1],
-                                     args.keywords[2]):
+                    if not validargs(args.keywords[0], args.keywords[1], args.keywords[2]):
                         raise ValueError('negative value')
 
                     today -= getreldate(args.keywords)
-                    print('%s %02d %s %04d' % (cal.day_abbr[today.weekday()],
-                                               today.day,
-                                               cal.month_abbr[today.month],
-                                               today.year))
+                    print('%s %04d %s %02d' % (cal.day_abbr[today.weekday()], today.year, cal.month_abbr[today.month], today.day))
                 else:
                     d0 = getdate(args.keywords)
                     showdatediff(today, d0)
