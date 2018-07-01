@@ -113,4 +113,5 @@ packages:
     builddeps:
       - make
     deps:
+      - python3-dateutil
       - python3
