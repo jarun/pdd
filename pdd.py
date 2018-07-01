@@ -36,7 +36,7 @@ if os.name == 'nt':
 
 monthdict = {name.lower(): num
              for num, name in enumerate(cal.month_abbr) if num}
-_VERSION_ = '1.2'  # current program version
+_VERSION_ = '1.3'  # current program version
 
 
 def is_int(arg):
