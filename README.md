@@ -18,7 +18,7 @@
 
 There are utilities and shell scripts which do what `pdd` does. However, `pdd` has been written with only one goal - simplicity. Users shouldn't have memorize anything.
 
-*Love smart and efficient terminal utilities? Explore my repositories. Buy me a cup of coffee if they help you.*
+*Love smart and efficient utilities? Explore [my repositories](https://github.com/jarun?tab=repositories). Buy me a cup of coffee if they help you.*
 
 <p align="center">
 <a href="https://saythanks.io/to/jarun"><img src="https://img.shields.io/badge/say-thanks!-ff69b4.svg" /></a>
