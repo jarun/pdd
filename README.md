@@ -7,6 +7,9 @@
 <a href="https://packages.debian.org/search?keywords=pdd&searchon=names&exact=1"><img src="https://img.shields.io/badge/debian-10+-blue.svg?maxAge=2592000" alt="Debian Buster+" /></a>
 <a href="https://apps.fedoraproject.org/packages/pdd"><img src="https://img.shields.io/badge/fedora-27+-blue.svg?maxAge=2592000" alt="Fedora 27+" /></a>
 <a href="https://packages.ubuntu.com/search?keywords=pdd&searchon=names&exact=1"><img src="https://img.shields.io/badge/ubuntu-18.04+-blue.svg?maxAge=2592000" alt="Ubuntu Bionic+" /></a>
+</p>
+
+<p align="center">
 <a href="https://github.com/jarun/pdd/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-GPLv3-yellow.svg?maxAge=2592000" alt="License" /></a>
 <a href="https://travis-ci.org/jarun/pdd"><img src="https://travis-ci.org/jarun/pdd.svg?branch=master" alt="Build Status" /></a>
 </p>
