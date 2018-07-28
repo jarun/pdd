@@ -260,11 +260,13 @@ def parse_args(args=None, namespace=None):
                    cal.day_abbr[t.tm_wday],
                    t.tm_year, cal.month_abbr[t.tm_mon], t.tm_mday,
                    t.tm_hour, t.tm_min, t.tm_sec))
+            print(time.time())
         else:
             print('%s %02d %s %d %02d:%02d:%02d %s' % (
                    cal.day_abbr[t.tm_wday],
                    t.tm_year, cal.month_abbr[t.tm_mon], t.tm_mday,
                    t.tm_hour, t.tm_min, t.tm_sec, t.tm_zone))
+            print(time.time())
 
         sys.exit(0)
 
