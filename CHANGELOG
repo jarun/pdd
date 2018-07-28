@@ -1,3 +1,13 @@
+pdd v1.3.1
+2018-07-01
+
+This is a minor release. Changes include:
+- Show epoch time with timestamp
+- Adds MANIFEST file for PyPI
+- Disabled packaging for Ubuntu 17.10
+
+-------------------------------------------------------------------------------
+
 pdd v1.3
 2018-07-01
 

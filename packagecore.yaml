@@ -103,12 +103,6 @@ packages:
     deps:
       - python3-dateutil
       - python3
-  ubuntu17.10:
-    builddeps:
-      - make
-    deps:
-      - python3-dateutil
-      - python3
   ubuntu18.04:
     builddeps:
       - make
