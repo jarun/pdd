@@ -71,7 +71,7 @@ or, using pip3:
 
 #### From a package manager
 
-- [AUR](https://aur.archlinux.org/packages/pdd/) (`pacman -S pdd`)
+- [AUR](https://aur.archlinux.org/packages/pdd/) (`yaourt -S pdd`)
 - [Debian](https://packages.debian.org/search?keywords=pdd&searchon=names&exact=1) (`apt-get install pdd`)
 - [Fedora](https://apps.fedoraproject.org/packages/pdd) (`dnf install pdd`)
 - [NixOS](https://github.com/NixOS/nixpkgs/tree/master/pkgs/tools/misc/pdd) (`nix-env -i pdd`)
