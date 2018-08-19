@@ -76,6 +76,7 @@ or, using pip3:
 - [Fedora](https://apps.fedoraproject.org/packages/pdd) (`dnf install pdd`)
 - [NixOS](https://github.com/NixOS/nixpkgs/tree/master/pkgs/tools/misc/pdd) (`nix-env -i pdd`)
 - [PyPI](https://pypi.org/project/pdd) (`pip3 install pdd`)
+- [Termux](https://termux.com/) (`pip3 install pdd`)
 - [Ubuntu](https://packages.ubuntu.com/search?keywords=pdd&searchon=names&exact=1) (`apt-get install pdd`)
 - [Ubuntu PPA](https://launchpad.net/~twodopeshaggy/+archive/ubuntu/jarun/) (`apt-get install pdd`)
 - [Void Linux](https://github.com/voidlinux/void-packages/tree/master/srcpkgs/pdd) (`xbps-install -S pdd`)
