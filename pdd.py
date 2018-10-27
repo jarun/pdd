@@ -32,11 +32,6 @@ if os.name == 'nt':
         _fields_ = [("size", ctypes.c_int),
                     ("visible", ctypes.c_byte)]
 
-if sys.platform == 'darwin':
-    cursor_off = 'tput civis'
-    corsor_on  = 'tput cnorm'
-    
-
 # Globals
 
 monthdict = {name.lower(): num
