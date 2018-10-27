@@ -170,25 +170,29 @@ def showtimesub(t0, t1):
 
 
 def cursor_off():
-    if os.name != 'nt':
-        os.system('setterm -cursor off')
-    else:
+    if os.name == 'nt':
         ci = _CursorInfo()
         handle = ctypes.windll.kernel32.GetStdHandle(-11)
         ctypes.windll.kernel32.GetConsoleCursorInfo(handle, ctypes.byref(ci))
         ci.visible = False
         ctypes.windll.kernel32.SetConsoleCursorInfo(handle, ctypes.byref(ci))
+    elif (sys.platform == 'darwin'):
+        os.system('tput civis')
+    else:
+        os.system('setterm -cursor off')
 
 
 def cursor_on():
-    if os.name != 'nt':
-        os.system('setterm -cursor on')
-    else:
+    if os.name == 'nt':
         ci = _CursorInfo()
         handle = ctypes.windll.kernel32.GetStdHandle(-11)
         ctypes.windll.kernel32.GetConsoleCursorInfo(handle, ctypes.byref(ci))
         ci.visible = True
         ctypes.windll.kernel32.SetConsoleCursorInfo(handle, ctypes.byref(ci))
+    elif (sys.platform == 'darwin'):
+        os.system('tput cnorm')
+    else:
+        os.system('setterm -cursor on')
 
 
 class ExtendedArgumentParser(argparse.ArgumentParser):
