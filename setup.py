@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
 
 import re
+import shutil
 import sys
 
 from setuptools import setup, find_packages
 
-if sys.version_info < (3, 5):
-    print('ERROR: pdd requires at least Python 3.5 to run.')
-    sys.exit(1)
+shutil.copyfile('pdd', 'pdd.py')
 
 with open('pdd.py', encoding='utf-8') as f:
     version = re.search('_VERSION_ = \'([^\']+)\'', f.read()).group(1)
@@ -27,6 +26,7 @@ setup(
     author_email='engineerarun@gmail.com',
     url='https://github.com/jarun/pdd',
     license='GPLv3',
+    python_requires='>=3.5',  # requires pip>=9.0.0
     platforms=['any'],
     py_modules=['pdd'],
     install_requires=['python-dateutil'],
@@ -44,6 +44,7 @@ setup(
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Environment :: Console',
+        'Intended Audience :: Developers',
         'Intended Audience :: End Users/Desktop',
         'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
         'Natural Language :: English',

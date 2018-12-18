@@ -5,3 +5,4 @@ __pycache__*
 pdd.egg-info
 dist/
 build/
+pdd.py

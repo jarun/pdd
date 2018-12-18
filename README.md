@@ -103,7 +103,8 @@ To remove, run:
 
 `pdd` is a standalone utility. From the containing directory, run:
 
-    $ ./pdd.py
+    $ chmod +x pdd
+    $ ./pdd
 
 ### Usage
 
