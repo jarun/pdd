@@ -111,10 +111,10 @@ To remove, run:
 #### cmdline options
 
 ```
-usage: pdd.py [-h] [-d yyyy mmm dd [yyyy mmm dd | y m d]]
-              [-t hh:mm:ss [hh:mm:ss | h:m:s]] [--add] [--sub]
-              [--day yyyy mmm dd] [-c hh:mm:ss] [-s [resolution]] [-q]
-              [keywords [keywords ...]]
+usage: pdd [-h] [-d yyyy mmm dd [yyyy mmm dd | y m d]]
+           [-t hh:mm:ss [hh:mm:ss | h:m:s]] [--add] [--sub]
+           [--day yyyy mmm dd] [-c hh:mm:ss] [-s [resolution]] [-q]
+           [keywords [keywords ...]]
 
 Tiny date, time difference calculator with timers.
 
