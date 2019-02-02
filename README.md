@@ -10,6 +10,7 @@
 </p>
 
 <p align="center">
+<a href="https://repology.org/metapackage/pdd"><img src="https://repology.org/badge/tiny-repos/pdd.svg" alt="Availability"></a>
 <a href="https://github.com/jarun/pdd/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-GPLv3-yellow.svg?maxAge=2592000" alt="License" /></a>
 <a href="https://travis-ci.org/jarun/pdd"><img src="https://travis-ci.org/jarun/pdd.svg?branch=master" alt="Build Status" /></a>
 </p>
@@ -25,7 +26,7 @@ There are utilities and shell scripts which do what `pdd` does. However, `pdd` h
 *Love smart and efficient utilities? Explore [my repositories](https://github.com/jarun?tab=repositories). Buy me a cup of coffee if they help you.*
 
 <p align="center">
-<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RMLTQ76JSXJ4Q"><img src="https://img.shields.io/badge/PayPal-donate-green.svg" alt="Donate via PayPal!" /></a>
+<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RMLTQ76JSXJ4Q"><img src="https://img.shields.io/badge/PayPal-donate-1eb0fc.svg" alt="Donate via PayPal!" /></a>
 </p>
 
 ### Table of Contents
