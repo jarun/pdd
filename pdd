@@ -169,6 +169,22 @@ def showtimesub(t0, t1):
     print('%ds' % (t0 - t1))
 
 
+def showdate():
+    t = time.localtime()
+
+    if os.name == 'nt' and sys.version_info < (3,6):
+        # No tm_zone in Python < v3.6 on Windows
+        print('%s %02d %s %d %02d:%02d:%02d' % (
+               cal.day_abbr[t.tm_wday],
+               t.tm_year, cal.month_abbr[t.tm_mon], t.tm_mday,
+               t.tm_hour, t.tm_min, t.tm_sec))
+    else:
+        print('%s %02d %s %d %02d:%02d:%02d %s' % (
+               cal.day_abbr[t.tm_wday],
+               t.tm_year, cal.month_abbr[t.tm_mon], t.tm_mday,
+               t.tm_hour, t.tm_min, t.tm_sec, t.tm_zone))
+
+
 def cursor_off():
     if os.name == 'nt':
         ci = _CursorInfo()
@@ -256,22 +272,7 @@ def parse_args(args=None, namespace=None):
 
     # Show `date` and exit if no arguments
     if len(sys.argv) < 2:
-        t = time.localtime()
-
-        if os.name == 'nt' and sys.version_info < (3,6):
-            # No tm_zone in Python < v3.6 on Windows
-            print('%s %02d %s %d %02d:%02d:%02d' % (
-                   cal.day_abbr[t.tm_wday],
-                   t.tm_year, cal.month_abbr[t.tm_mon], t.tm_mday,
-                   t.tm_hour, t.tm_min, t.tm_sec))
-            print(time.time())
-        else:
-            print('%s %02d %s %d %02d:%02d:%02d %s' % (
-                   cal.day_abbr[t.tm_wday],
-                   t.tm_year, cal.month_abbr[t.tm_mon], t.tm_mday,
-                   t.tm_hour, t.tm_min, t.tm_sec, t.tm_zone))
-            print(time.time())
-
+        showdate()
         sys.exit(0)
 
     return argparser.parse_args(args, namespace)
