@@ -265,7 +265,7 @@ def parse_args(args=None, namespace=None):
     addarg('-c', dest='timer', nargs=1, metavar=('hh:mm:ss'),
            help='start a countdown timer')
     addarg('-s', dest='stopwatch', nargs='?', type=int, const=3, choices=range(1, 10),
-           metavar=('resolution'), help='start a stopwatch (default resolution: ms)')
+           metavar=('resolution'), help='start a stopwatch [default resolution: 3 (ms)]')
     addarg('-q', dest='quiet', action='store_true',
            help='quiet mode for background timer/stopwatch')
     addarg('keywords', nargs='*', help='diff/add/subtract from today or now')
@@ -413,11 +413,16 @@ def main():
             pass
         finally:
             print('\r\x1b[7m{0:02d}h {1:02d}m {2:02d}s\x1b[0m  '.format(h, m, s), end='\b\b\n', flush=True)
+            print('stop: ', end='')
+            showdate()
             if args.quiet is False:
                 cursor_on()
 
     # Stopwatch
     if args.stopwatch:
+        print('start: ', end='')
+        showdate()
+
         n = args.stopwatch
         res = 10 ** (-n)
         t0 = time.time()

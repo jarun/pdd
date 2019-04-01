@@ -132,7 +132,7 @@ optional arguments:
   --sub                 subtract from date (/today) or time (/now)
   --day yyyy mmm dd     show day of the week on a date
   -c hh:mm:ss           start a countdown timer
-  -s [resolution]       start a stopwatch (default resolution: ms)
+  -s [resolution]       start a stopwatch [default resolution: 3 (ms)]
   -q                    quiet mode for background timer/stopwatch
 ```
 
