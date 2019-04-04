@@ -114,7 +114,8 @@ To remove, run:
 ```
 usage: pdd [-h] [-d yyyy mmm dd [yyyy mmm dd | y m d]]
            [-t hh:mm:ss [hh:mm:ss | h:m:s]] [--add] [--sub]
-           [--day yyyy mmm dd] [-c hh:mm:ss] [-s [resolution]] [-q]
+           [--day yyyy mmm dd] [-c hh:mm:ss] [-r command] [-s [resolution]]
+           [-q]
            [keywords [keywords ...]]
 
 Tiny date, time difference calculator with timers.
