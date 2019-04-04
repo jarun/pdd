@@ -1,14 +1,11 @@
 #!/usr/bin/env python3
 
 import re
-import shutil
 import sys
 
 from setuptools import setup, find_packages
 
-shutil.copyfile('pdd', 'pdd.py')
-
-with open('pdd.py', encoding='utf-8') as f:
+with open('pdd', encoding='utf-8') as f:
     version = re.search('_VERSION_ = \'([^\']+)\'', f.read()).group(1)
 
 with open('README.md', encoding='utf-8') as f:
