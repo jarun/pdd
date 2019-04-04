@@ -22,6 +22,8 @@ import calendar as cal
 from datetime import date
 from datetime import datetime
 import os
+import shlex
+import subprocess
 import sys
 import time
 from dateutil.relativedelta import relativedelta
@@ -336,6 +338,9 @@ def run_countdown_timer(args):
         showdate()
         if args.quiet is False:
             cursor_on()
+        if args.run:
+            # subprocess.call(''.join(args.run).split())
+            subprocess.call(shlex.split(''.join(args.run)))
 
 
 def run_stopwatch(args):
@@ -415,6 +420,8 @@ def parse_args(args=None, namespace=None):
            help='show day of the week on a date')
     addarg('-c', dest='timer', nargs=1, metavar=('hh:mm:ss'),
            help='start a countdown timer')
+    addarg('-r', dest='run', nargs=1, metavar=('command'),
+           help='run command when countdown timer reaches 0')
     addarg('-s', dest='stopwatch', nargs='?', type=int, const=3, choices=range(1, 10),
            metavar=('resolution'), help='start a stopwatch [default resolution: 3 (ms)]')
     addarg('-q', dest='quiet', action='store_true',

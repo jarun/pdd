@@ -17,7 +17,7 @@ pdd \- Tiny date, time difference calculator with timers.
 .br
 - calculate diff from \fItoday\fR and \fInow\fR
 .br
-- countdown timer
+- countdown timer with command piggybacking
 .br
 - custom resolution stopwatch
 .br
@@ -60,6 +60,9 @@ Show the day of the week on a date.
 .TP
 .BI "-c" " hh:mm:ss"
 Set a countdown timer with duration in hours, minutes and seconds.
+.TP
+.BI "-r" " command"
+Run command when countdown timer reaches 0.
 .TP
 .BI "-s" " [resolution]"
 Start a custom resolution stopwatch. \fIresolution\fR can range from 1 to 9. Default 3 for millisecond.
@@ -200,6 +203,15 @@ Start a countdown timer or stopwatch in \fBquiet mode\fR in the background:
 .PP
 .IP "" 4
 To see the final counter run \fIfg\fR and press \fICtrl-C\fR.
+.PP
+.IP 17. 4
+Run a command when countdown timer reaches 0:
+.PP
+.EX
+.IP
+.B $ pdd -c 00:00:5 -r 'ps -aux'
+.B $ pdd -c 00:00:5 -r 'notify-send pdd expired'
+.EE
 .SH AUTHORS
 Arun Prakash Jana <engineerarun@gmail.com>
 .SH HOME

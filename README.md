@@ -50,7 +50,7 @@ There are utilities and shell scripts which do what `pdd` does. However, `pdd` h
 - calculate date and time difference
 - calculate diff from *today* and *now*
 - add, subtract duration (timeslice) to/from date (time)
-- countdown timer
+- countdown timer with command piggybacking
 - custom resolution stopwatch
 - non-verbose mode for background timers
 - show current date, time and timezone
@@ -132,6 +132,7 @@ optional arguments:
   --sub                 subtract from date (/today) or time (/now)
   --day yyyy mmm dd     show day of the week on a date
   -c hh:mm:ss           start a countdown timer
+  -r command            run command when countdown timer reaches 0
   -s [resolution]       start a stopwatch [default resolution: 3 (ms)]
   -q                    quiet mode for background timer/stopwatch
 ```
@@ -213,6 +214,11 @@ optional arguments:
         $ pdd -qs &
         $ pdd -qc 3:0:0 &
     To see the final counter run `fg` and press <kbd>Ctrl-C</kbd>.
+
+17. Run a command when countdown timer reaches 0
+
+        $ pdd -c 00:00:5 -r 'ps -aux'
+        $ pdd -c 00:00:5 -r 'notify-send pdd "timer expired"'
 
 ### Copyright
 
