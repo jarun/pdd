@@ -338,7 +338,7 @@ def run_countdown_timer(args):
         showdate()
         if args.quiet is False:
             cursor_on()
-        if args.run:
+        if args.run and h == 0 and m == 0 and s == 0:
             # subprocess.call(''.join(args.run).split())
             subprocess.call(shlex.split(''.join(args.run)))
 
