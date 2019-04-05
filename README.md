@@ -152,63 +152,90 @@ optional arguments:
 1. Calculate diff from **today**:
 
        $ pdd 2014 Jan 15
+       5y 2m 21d
+       1906d
 
 2. Calculate diff from **now**:
 
        $ pdd 24:00:00
+       15:24:03
+       55443s
+
        $ pdd 0
+       08:36:22
+       30982s
 
 3. Calculate date diff:
 
        $ pdd -d 1983 jul 3 2014 1 15
+       30y 6m 12d
+       11154d
 
 4. Calculate time diff:
 
        $ pdd -t 45:50 6:17:33
+       05:31:43
+       19903s
 
 5. Show current date, time and timezone:
 
        $ pdd
+       Fri 2019 Apr 5 08:37:25 IST
 
 6. Specify time with roll-over:
 
        $ pdd -t 5:80:75 6:17:33
+       00:03:42
+       222s
 
 7. Add a duration (3 years, 2 months, 1 day) to 28 Feb, 2000:
 
        $ pdd -d 2000 FEB 28 3 2 1 --add
+       Tue 2003 Apr 29
 
 8. Add a timeslice (1 hour 2 mins 3 secs) to 23:45:37:
 
        $ pdd -t 23:45:37 1:2:3 --add
+       1 day(s) later, 00:47:40
+       89260s
 
 9. Add a duration (3 years, 2 months, 1 day) to **today**:
 
        $ pdd 3 2 1 --add
+       Mon 2022 Jun 06
 
 10. Add a timeslice (1 hour 2 minutes 3 seconds) to **now**:
 
         $ pdd 1:2:3 --add
+        09:41:26
+        34886s
 
 11. Subtract a duration (1 day) from 1 Mar, 2000:
 
         $ pdd -d 2000 Mar 01 0 0 1 --sub
+        Tue 2000 Feb 29
 
 12. Subtract a timeslice (1 sec) from midnight:
 
         $ pdd -t 00:00:00 0:0:1 --sub
+        1 day(s) earlier, 23:59:59
+        -1s
 
 13. Subtract a duration (3 years, 2 months, 1 day) from **today**:
 
         $ pdd 3 2 1 --sub
+        Thu 2016 Feb 04
 
 14. Subtract a timeslice (1 hour 2 minutes 3 seconds) from **now**:
 
         $ pdd 1:2:3 --sub
+        07:40:02
+        27602s
 
 15. Show the day of the week on 15 Jan 2014:
 
         $ pdd --day 2014 Jan 15
+        Wed
 
 16. Start a countdown timer or stopwatch in **quiet mode** in the background:
 
