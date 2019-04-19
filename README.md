@@ -80,7 +80,6 @@ or, using pip3:
 - [Raspbian Testing](https://archive.raspbian.org/raspbian/pool/main/p/pdd/) (`apt-get install pdd`)
 - [Termux](https://termux.com/) (`pip3 install pdd`)
 - [Ubuntu](https://packages.ubuntu.com/search?keywords=pdd&searchon=names&exact=1) (`apt-get install pdd`)
-- [Ubuntu PPA](https://launchpad.net/~twodopeshaggy/+archive/ubuntu/jarun/) (`apt-get install pdd`)
 - [Void Linux](https://github.com/void-linux/void-packages/tree/master/srcpkgs/pdd) (`xbps-install -S pdd`)
 
 #### Release packages
