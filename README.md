@@ -6,8 +6,8 @@
 <a href="https://pypi.python.org/pypi/pdd"><img src="https://img.shields.io/pypi/v/pdd.svg?maxAge=600" alt="PyPI" /></a>
 <a href="https://packages.debian.org/search?keywords=pdd&searchon=names&exact=1"><img src="https://img.shields.io/badge/debian-10+-blue.svg?maxAge=2592000" alt="Debian Buster+" /></a>
 <a href="https://apps.fedoraproject.org/packages/pdd"><img src="https://img.shields.io/badge/fedora-27+-blue.svg?maxAge=2592000" alt="Fedora 27+" /></a>
+<a href="https://software.opensuse.org/package/python3-pdd"><img src="https://img.shields.io/badge/opensuse-tumbleweed-blue.svg?maxAge=2592000" alt="openSUSE Tumbleweed" /></a>
 <a href="https://packages.ubuntu.com/search?keywords=pdd&searchon=names&exact=1"><img src="https://img.shields.io/badge/ubuntu-18.04+-blue.svg?maxAge=2592000" alt="Ubuntu Bionic+" /></a>
-<a href="https://software.opensuse.org/package/python3-pdd"><img src="https://img.shields.io/badge/openSUSE-Tumbleweed-blue.svg?maxAge=2592000" alt="openSUSE Tumbleweed" /></a>
 </p>
 
 <p align="center">
@@ -77,6 +77,7 @@ or, using pip3:
 - [Debian](https://packages.debian.org/search?keywords=pdd&searchon=names&exact=1) (`apt-get install pdd`)
 - [Fedora](https://apps.fedoraproject.org/packages/pdd) (`dnf install pdd`)
 - [NixOS](https://github.com/NixOS/nixpkgs/tree/master/pkgs/tools/misc/pdd) (`nix-env -i pdd`)
+- [openSUSE Tumbleweed](https://software.opensuse.org/search?q=pdd) (`zypper in python3-pdd`)
 - [PyPI](https://pypi.org/project/pdd) (`pip3 install pdd`)
 - [Raspbian Testing](https://archive.raspbian.org/raspbian/pool/main/p/pdd/) (`apt-get install pdd`)
 - [Termux](https://termux.com/) (`pip3 install pdd`)
