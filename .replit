@@ -1,2 +1,2 @@
-language = "bash"
+language = "python"
 run = "./pdd -h"
