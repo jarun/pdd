@@ -1,2 +1,2 @@
 language = "python3"
-run = "./pdd -h"
+run = "chmod +x pdd && ./pdd -h"
