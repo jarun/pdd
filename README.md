@@ -2,19 +2,11 @@
 
 <p align="center">
 <a href="https://github.com/jarun/pdd/releases/latest"><img src="https://img.shields.io/github/release/jarun/pdd.svg?maxAge=600" alt="Latest release" /></a>
-<a href="https://aur.archlinux.org/packages/pdd"><img src="https://img.shields.io/aur/version/pdd.svg?maxAge=600" alt="AUR" /></a>
-<a href="https://pypi.python.org/pypi/pdd"><img src="https://img.shields.io/pypi/v/pdd.svg?maxAge=600" alt="PyPI" /></a>
-<a href="https://packages.debian.org/search?keywords=pdd&searchon=names&exact=1"><img src="https://img.shields.io/badge/debian-10+-blue.svg?maxAge=2592000" alt="Debian Buster+" /></a>
-<a href="https://apps.fedoraproject.org/packages/pdd"><img src="https://img.shields.io/badge/fedora-27+-blue.svg?maxAge=2592000" alt="Fedora 27+" /></a>
-<a href="https://software.opensuse.org/package/python3-pdd"><img src="https://img.shields.io/badge/opensuse-tumbleweed-blue.svg?maxAge=2592000" alt="openSUSE Tumbleweed" /></a>
-<a href="https://packages.ubuntu.com/search?keywords=pdd&searchon=names&exact=1"><img src="https://img.shields.io/badge/ubuntu-18.04+-blue.svg?maxAge=2592000" alt="Ubuntu Bionic+" /></a>
-<a href="https://repl.it/github/jarun/pdd"><img src="https://repl.it/badge/github/jarun/pdd?maxAge=2592000" alt="Repl.it" /></a>
-</p>
-
-<p align="center">
-<a href="https://repology.org/metapackage/pdd"><img src="https://repology.org/badge/tiny-repos/pdd.svg" alt="Availability"></a>
-<a href="https://github.com/jarun/pdd/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-GPLv3-yellow.svg?maxAge=2592000" alt="License" /></a>
+<a href="https://repology.org/project/pdd/versions"><img src="https://repology.org/badge/tiny-repos/pdd.svg" alt="Availability"></a>
+<a href="https://pypi.org/project/pdd/"><img src="https://img.shields.io/pypi/v/pdd.svg?maxAge=600" alt="PyPI" /></a>
 <a href="https://circleci.com/gh/jarun/workflows/pdd"><img src="https://img.shields.io/circleci/project/github/jarun/pdd.svg" alt="Build Status" /></a>
+<a href="https://github.com/jarun/pdd/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-GPLv3-yellow.svg?maxAge=2592000" alt="License" /></a>
+<a href="https://repl.it/github/jarun/pdd"><img src="https://repl.it/badge/github/jarun/pdd?maxAge=2592000" alt="Repl.it" /></a>
 </p>
 
 <p align="center">
@@ -74,16 +66,21 @@ or, using pip3:
 
 #### From a package manager
 
-- [AUR](https://aur.archlinux.org/packages/pdd/) (`yay -S pdd`)
-- [Debian](https://packages.debian.org/search?keywords=pdd&searchon=names&exact=1) (`apt-get install pdd`)
-- [Fedora](https://apps.fedoraproject.org/packages/pdd) (`dnf install pdd`)
-- [NixOS](https://github.com/NixOS/nixpkgs/tree/master/pkgs/tools/misc/pdd) (`nix-env -i pdd`)
-- [openSUSE Tumbleweed](https://software.opensuse.org/search?q=pdd) (`zypper in python3-pdd`)
-- [PyPI](https://pypi.org/project/pdd) (`pip3 install pdd`)
-- [Raspbian Testing](https://archive.raspbian.org/raspbian/pool/main/p/pdd/) (`apt-get install pdd`)
-- [Termux](https://termux.com/) (`pip3 install pdd`)
-- [Ubuntu](https://packages.ubuntu.com/search?keywords=pdd&searchon=names&exact=1) (`apt-get install pdd`)
-- [Void Linux](https://github.com/void-linux/void-packages/tree/master/srcpkgs/pdd) (`xbps-install -S pdd`)
+Install `pdd` from your package manager. If the version available is dated try an alternative installation method.
+
+<details><summary>Packaging status (expand)</summary>
+<p>
+<br>
+<a href="https://repology.org/project/pdd/versions"><img src="https://repology.org/badge/vertical-allrepos/pdd.svg" alt="Packaging status"></a>
+</p>
+Unlisted packagers:
+<p>
+<br>
+● <a href="https://software.opensuse.org/search?q=pdd">openSUSE Tumbleweed</a> (<code>zypper in python3-pdd</code>)<br>
+● <a href="https://pypi.org/project/pdd/">PyPI</a> (<code>pip3 install pdd</code>)<br>
+● Termux (<code>pip3 install pdd</code>)<br>
+</p>
+</details>
 
 #### Release packages
 
