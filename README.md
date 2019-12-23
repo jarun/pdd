@@ -76,7 +76,6 @@ Install `pdd` from your package manager. If the version available is dated try a
 Unlisted packagers:
 <p>
 <br>
-● <a href="https://software.opensuse.org/search?q=pdd">openSUSE Tumbleweed</a> (<code>zypper in python3-pdd</code>)<br>
 ● <a href="https://pypi.org/project/pdd/">PyPI</a> (<code>pip3 install pdd</code>)<br>
 ● Termux (<code>pip3 install pdd</code>)<br>
 </p>
