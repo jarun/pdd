@@ -54,7 +54,7 @@
 
 #### Dependencies
 
-`pdd` requires Python 3.5 (or later) and the `dateutil` module.
+`pdd` requires Python 3.6 (or later) and the `dateutil` module.
 
 To install `dateutil` on Ubuntu, run:
 
