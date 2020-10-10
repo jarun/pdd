@@ -1,3 +1,12 @@
+pdd v1.5
+2020-10-10
+
+- updated auto-generated package list
+- drop python 3.5 support, add 3.9
+- maintenance release
+
+-------------------------------------------------------------------------------
+
 pdd v1.4
 2019-04-04
 
