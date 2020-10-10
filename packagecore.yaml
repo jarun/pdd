@@ -14,49 +14,70 @@ packages:
       - python-dateutil
       - python
     container: "archlinux/base"
-  centos7.3:
+  centos7.5:
     builddeps:
       - make
     deps:
       - python-dateutil
       - python
-    commands:
-      pre:
-        - yum install epel-release
-  centos7.4:
+  centos7.6:
     builddeps:
       - make
     deps:
       - python-dateutil
       - python
+  centos7.7:
+    builddeps:
+      - make
+    deps:
+      - python-dateutil
+      - python
+  centos8.0:
+    builddeps:
+      - make
+    deps:
+      - python3-dateutil
+      - python3
     commands:
-      pre:
-        - yum install epel-release
+      precompile:
+        - dnf install python3
   debian9:
     builddeps:
       - make
     deps:
       - python3-dateutil
       - python3
-  fedora27:
+  debian10:
     builddeps:
       - make
     deps:
       - python3-dateutil
       - python3
-  fedora28:
+  fedora31:
     builddeps:
       - make
     deps:
       - python3-dateutil
       - python3
-  fedora29:
+  fedora32:
     builddeps:
       - make
     deps:
       - python3-dateutil
       - python3
-  opensuse42.3:
+  opensuse15.1:
+    builddeps:
+      - make
+    deps:
+      - python3-dateutil
+      - python3
+  opensuse15.2:
+    builddeps:
+      - make
+    deps:
+      - python3-dateutil
+      - python3
+  opensuse.tumbleweed:
     builddeps:
       - make
     deps:
@@ -69,6 +90,12 @@ packages:
       - python3-dateutil
       - python3
   ubuntu18.04:
+    builddeps:
+      - make
+    deps:
+      - python3-dateutil
+      - python3
+  ubuntu20.04:
     builddeps:
       - make
     deps:
