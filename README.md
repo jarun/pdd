@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-<a href="https://asciinema.org/a/189581"><img src="https://asciinema.org/a/189581.png" alt="Asciicast" width="650"/></a>
+<a href="https://asciinema.org/a/189581"><img src="https://asciinema.org/a/189581.svg" alt="Asciicast" width="650"/></a>
 </p>
 
 `pdd` (Python3 Date Diff) is a tiny command line utility to calculate date and time difference. It can also be used as a timer. If no program arguments are specified it shows the current date, time and timezone.
@@ -20,7 +20,7 @@
 *Love smart and efficient utilities? Explore [my repositories](https://github.com/jarun?tab=repositories). Buy me a cup of coffee if they help you.*
 
 <p align="center">
-<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RMLTQ76JSXJ4Q"><img src="https://img.shields.io/badge/PayPal-donate-1eb0fc.svg" alt="Donate via PayPal!" /></a>
+<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RMLTQ76JSXJ4Q"><img src="https://img.shields.io/badge/donate-@PayPal-1eb0fc.svg" alt="Donate via PayPal!" /></a>
 </p>
 
 ### Table of Contents
