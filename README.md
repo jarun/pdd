@@ -16,10 +16,6 @@
 
 `pdd` has been written with only one goal - simplicity. Users shouldn't have to memorize anything.
 
-<p align="center">
-<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RMLTQ76JSXJ4Q"><img src="https://img.shields.io/badge/donate-@PayPal-1eb0fc.svg" alt="Donate via PayPal!" /></a>
-</p>
-
 ### Table of Contents
 
 - [Features](#features)
