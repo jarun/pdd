@@ -303,7 +303,7 @@ def calc_misc(args):
         else:
             showtimediff(t0, secs)
     else:
-        print('keywords can be [dd mmm yyyy] OR [hh:mm:ss]')
+        print('keywords can be [yyyy mmm dd] OR [hh:mm:ss]')
 
 
 def run_countdown_timer(args):
