@@ -1,0 +1,4 @@
+#compdef {{programs}}
+
+_arguments -s -S \
+  {{flags}}

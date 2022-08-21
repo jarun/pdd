@@ -389,18 +389,12 @@ Webpage: https://github.com/jarun/pdd
         self.print_extended_help(file)
 
 
-def parse_args(args=None, namespace=None):
-    '''Parse arguments/options.
-    Parameters
-    ----------
-    args : list, optional
-        Arguments to parse. Default is ``sys.argv``.
-    namespace : argparse.Namespace
-        Namespace to write to. Default is a new namespace.
+def get_parser():
+    '''Get parser.
     Returns
     -------
-    argparse.Namespace
-        Namespace with parsed arguments / options.
+    argparse.ArgumentParser
+        Parser with arguments / options.
     '''
 
     argparser = ExtendedArgumentParser(
@@ -428,16 +422,16 @@ def parse_args(args=None, namespace=None):
            help='quiet mode for background timer/stopwatch')
     addarg('keywords', nargs='*', help='diff/add/subtract from today or now')
 
+    return argparser
+
+
+def main():
     # Show `date` and exit if no arguments
     if len(sys.argv) < 2:
         showdate()
         sys.exit(0)
 
-    return argparser.parse_args(args, namespace)
-
-
-def main():
-    args = parse_args()
+    args = get_parser().parse_args()
 
     if args.add and args.sub:
         print('error: cannot add and subtract simultaneously')
