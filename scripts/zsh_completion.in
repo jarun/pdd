@@ -1,0 +1,26 @@
+#compdef {{programs}}
+
+# number of words between latest `-d` and cursor
+integer d_nargs=${${(Oa)words[1,CURRENT]}[(i)-d]}
+integer t_nargs=${${(Oa)words[1,CURRENT]}[(i)-t]}
+integer day_nargs=${${(Oa)words[1,CURRENT]}[(i)--day]}
+# the word in cursor is ''
+if [[ -z ${words[CURRENT]} ]]; then
+  d_nargs+=1
+  t_nargs+=1
+  day_nargs+=1
+fi
+local d_metavars=(yyyy mmm dd yyyy/y mmm/m dd/d)
+local t_metavars=(hh\\:mm\\:ss hh\\:mm\\:ss/h\\:m\\:s)
+local day_metavars=(yyyy mmm dd)
+
+if (($d_nargs <= $#d_metavars + 1 && $d_nargs <= $#words)); then
+  _arguments "*:${d_metavars[d_nargs - 1]}"
+elif (($t_nargs <= $#t_metavars + 1 && $t_nargs <= $#words)); then
+  _arguments "*:${t_metavars[t_nargs - 1]}"
+elif (($day_nargs <= $#day_metavars + 1 && $day_nargs <= $#words)); then
+  _arguments "*:${day_metavars[day_nargs - 1]}"
+else
+  _arguments -s -S \
+    {{flags}}
+fi
