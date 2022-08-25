@@ -130,6 +130,8 @@ optional arguments:
   -q                    quiet mode for background timer/stopwatch
 ```
 
+Note: Run [zsh_completion.py](https://github.com/jarun/pdd/blob/master/scripts/zsh_completion.py) to generate zsh completion script.
+
 #### Operational notes
 
 - ISO 8601 format. Month can be specified as month number (e.g. Jan - 1, Dec - 12).
