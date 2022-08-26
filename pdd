@@ -400,10 +400,10 @@ def get_parser():
     argparser = ExtendedArgumentParser(
         description='Tiny date, time difference calculator with timers.')
     addarg = argparser.add_argument
-    addarg('-d', dest='date', nargs=6,
+    addarg('-d', '--date', dest='date', nargs=6,
            metavar=('yyyy', 'mmm', 'dd', '[yyyy', 'mmm', 'dd | y m d]'),
            help='calculate date difference')
-    addarg('-t', dest='time', nargs=2,
+    addarg('-t', '--time', dest='time', nargs=2,
            metavar=('hh:mm:ss', '[hh:mm:ss | h:m:s]'),
            help='calculate time difference')
     addarg('--add', action='store_true',
@@ -412,13 +412,13 @@ def get_parser():
            help='subtract from date (/today) or time (/now)')
     addarg('--day', nargs=3, metavar=('yyyy', 'mmm', 'dd'),
            help='show day of the week on a date')
-    addarg('-c', dest='timer', nargs=1, metavar=('hh:mm:ss'),
+    addarg('-c', '--timer', dest='timer', nargs=1, metavar=('hh:mm:ss'),
            help='start a countdown timer')
-    addarg('-r', dest='run', nargs=1, metavar=('command'),
+    addarg('-r', '--run', dest='run', nargs=1, metavar=('command'),
            help='run command when countdown timer reaches 0')
-    addarg('-s', dest='stopwatch', nargs='?', type=int, const=3, choices=range(1, 10),
+    addarg('-s', '--stopwatch', dest='stopwatch', nargs='?', type=int, const=3, choices=range(1, 10),
            metavar=('resolution'), help='start a stopwatch [default resolution: 3 (ms)]')
-    addarg('-q', dest='quiet', action='store_true',
+    addarg('-q', '--quiet', dest='quiet', action='store_true',
            help='quiet mode for background timer/stopwatch')
     addarg('keywords', nargs='*', help='diff/add/subtract from today or now')
 

@@ -45,10 +45,10 @@ pdd \- Tiny date, time difference calculator with timers.
 .BI "-h, --help"
 Show help text and exit.
 .TP
-.BI "-d" " yyyy mmm dd [yyyy mmm dd | y m d]"
+.BI "-d, --date" " yyyy mmm dd [yyyy mmm dd | y m d]"
 Calculate date difference.
 .TP
-.BI "-t" " hh:mm:ss [hh:mm:ss | h:m:s]"
+.BI "-t, --time" " hh:mm:ss [hh:mm:ss | h:m:s]"
 Calculate time difference.
 .TP
 .BI "--add"
@@ -60,16 +60,16 @@ Subtract a duration or timeslice from date (/today) or time (/now).
 .BI "--day" " yyyy mmm dd"
 Show the day of the week on a date.
 .TP
-.BI "-c" " hh:mm:ss"
+.BI "-c, --timer" " hh:mm:ss"
 Set a countdown timer with duration in hours, minutes and seconds.
 .TP
-.BI "-r" " command"
+.BI "-r, --run" " command"
 Run command when countdown timer reaches 0.
 .TP
-.BI "-s" " [resolution]"
+.BI "-s, --stopwatch" " [resolution]"
 Start a custom resolution stopwatch. \fIresolution\fR can range from 1 to 9. Default 3 for millisecond.
 .TP
-.BI "-q"
+.BI "-q, --quiet"
 Quiet mode for a countdown timer or stopwatch to be run in the background. The counter is shown only when \fICtrl-C\fR is pressed.
 .SH EXAMPLES
 .PP

@@ -106,28 +106,30 @@ To remove, run:
 ```
 usage: pdd [-h] [-d yyyy mmm dd [yyyy mmm dd | y m d]]
            [-t hh:mm:ss [hh:mm:ss | h:m:s]] [--add] [--sub]
-           [--day yyyy mmm dd] [-c hh:mm:ss] [-r command] [-s [resolution]]
-           [-q]
-           [keywords [keywords ...]]
+           [--day yyyy mmm dd] [-c hh:mm:ss] [-r command] [-s [resolution]] [-q]
+           [keywords ...]
 
 Tiny date, time difference calculator with timers.
 
 positional arguments:
   keywords              diff/add/subtract from today or now
 
-optional arguments:
+options:
   -h, --help            show this help message and exit
-  -d yyyy mmm dd [yyyy mmm dd | y m d]
+  -d yyyy mmm dd [yyyy mmm dd | y m d], --date yyyy mmm dd [yyyy mmm dd | y m d]
                         calculate date difference
-  -t hh:mm:ss [hh:mm:ss | h:m:s]
+  -t hh:mm:ss [hh:mm:ss | h:m:s], --time hh:mm:ss [hh:mm:ss | h:m:s]
                         calculate time difference
   --add                 add to date (/today) or time (/now)
   --sub                 subtract from date (/today) or time (/now)
   --day yyyy mmm dd     show day of the week on a date
-  -c hh:mm:ss           start a countdown timer
-  -r command            run command when countdown timer reaches 0
-  -s [resolution]       start a stopwatch [default resolution: 3 (ms)]
-  -q                    quiet mode for background timer/stopwatch
+  -c hh:mm:ss, --timer hh:mm:ss
+                        start a countdown timer
+  -r command, --run command
+                        run command when countdown timer reaches 0
+  -s [resolution], --stopwatch [resolution]
+                        start a stopwatch [default resolution: 3 (ms)]
+  -q, --quiet           quiet mode for background timer/stopwatch
 ```
 
 Note: Run [zsh_completion.py](https://github.com/jarun/pdd/blob/master/scripts/zsh_completion.py) to generate zsh completion script.
