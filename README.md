@@ -132,7 +132,7 @@ options:
   -q, --quiet           quiet mode for background timer/stopwatch
 ```
 
-Note: Run [zsh_completion.py](https://github.com/jarun/pdd/blob/master/scripts/zsh_completion.py) to generate zsh completion script.
+Completion scripts are available for Bash, Fish and Zsh shells.
 
 #### Operational notes
 
