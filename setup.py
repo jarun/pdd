@@ -6,7 +6,8 @@ import sys
 
 from setuptools import setup, find_packages
 
-shutil.copyfile('pdd', 'pdd.py')
+if os.path.isfile('pdd'):
+    shutil.copyfile('pdd', 'pdd.py')
 
 with open('pdd.py', encoding='utf-8') as f:
     version = re.search('_VERSION_ = \'([^\']+)\'', f.read()).group(1)
