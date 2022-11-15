@@ -120,7 +120,7 @@ from os.path import dirname as dirn
 import sys
 from typing import Final, Tuple
 
-path = dirn(dirn(os.path.abspath(__file__)))
+path = dirn(dirn(dirn(os.path.abspath(__file__))))
 sys.path.insert(0, path)
 PACKAGE: Final = "pdd" if sys.argv[1:2] == [] else sys.argv[1]
 parser = __import__(PACKAGE).get_parser()
