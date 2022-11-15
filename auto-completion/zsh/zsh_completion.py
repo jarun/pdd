@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """Generate zsh completion script.
 
 Usage
@@ -8,6 +8,11 @@ Usage
     sudo mv _[^_]* /usr/share/zsh/site-functions  # don't mv __pycache__
     rm -f ~/.zcompdump  # optional
     compinit  # regenerate ~/.zcompdump
+
+Generate (from source code)
+---------------------------
+# Move pdd from project directory to auto-completion/zsh/pdd.py
+# Run: ./zsh_completion.py
 
 Debug
 -----
