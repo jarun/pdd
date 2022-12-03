@@ -13,3 +13,4 @@ complete -c pdd -s r  -l run       -r --description 'run command when countdown 
 complete -c pdd -s s  -l stopwatch    --description 'start a stopwatch [default resolution: 3 (ms)]'
 complete -c pdd       -l sub          --description 'subtract from date (/today) or time (/now)'
 complete -c pdd -s t  -l time      -r --description 'calculate time difference'
+complete -c pdd -s v  -l version      --description 'show version'

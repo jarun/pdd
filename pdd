@@ -422,6 +422,8 @@ def get_parser():
            help='quiet mode for background timer/stopwatch')
     addarg('keywords', nargs='*', help='diff/add/subtract from today or now')
 
+    addarg('-v', '--version', action='version', version=_VERSION_)
+
     return argparser
 
 
