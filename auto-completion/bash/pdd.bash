@@ -12,6 +12,7 @@ _pdd () {
         --add
         -h --help
         -q --quiet
+        -v --version
         --sub
     )
     opts_with_arg=(
