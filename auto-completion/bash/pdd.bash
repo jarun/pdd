@@ -12,8 +12,8 @@ _pdd () {
         --add
         -h --help
         -q --quiet
-        -v --version
         --sub
+        -v --version
     )
     opts_with_arg=(
         -c --timer
