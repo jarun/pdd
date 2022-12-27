@@ -19,15 +19,15 @@ install-bin:
 install-completions: install-bash-completion install-zsh-completion install-fish-completion
 
 install-bash-completion:
-	install -Dm644 auto-completion/bash/pdd.bash $(PREFIX)/share/bash-completion/compilations/pdd
+	install -Dm644 auto-completion/bash/pdd.bash $(DESTDIR)$(PREFIX)/share/bash-completion/compilations/pdd
 
 install-fish-completion:
-	install -Dm644 auto-completion/fish/pdd.fish -t $(PREFIX)/share/fish/vendor_completions.d
+	install -Dm644 auto-completion/fish/pdd.fish -t $(DESTDIR)$(PREFIX)/share/fish/vendor_completions.d
 
 install-zsh-completion:
 	cp pdd pdd.py
 	auto-completion/zsh/zsh_completion.py
-	install -Dm644 _pdd -t $(PREFIX)/share/zsh/site-functions
+	install -Dm644 _pdd -t $(DESTDIR)$(PREFIX)/share/zsh/site-functions
 
 uninstall:
 	rm -f $(BINDIR)/pdd
