@@ -19,7 +19,7 @@ install-bin:
 install-completions: install-bash-completion install-zsh-completion install-fish-completion
 
 install-bash-completion:
-	install -Dm644 auto-completion/bash/pdd.bash $(PREFIX)/share/bash-completion/compilations/pdd
+	install -Dm644 auto-completion/bash/pdd.bash $(PREFIX)/share/bash-completion/completions/pdd
 
 install-fish-completion:
 	install -Dm644 auto-completion/fish/pdd.fish -t $(PREFIX)/share/fish/vendor_completions.d
@@ -33,7 +33,7 @@ uninstall:
 	rm -f $(BINDIR)/pdd
 	rm -f $(MANDIR)/pdd.1.gz
 	rm -rf $(DOCDIR)
-	rm -rf $(PREFIX)/share/bash-completion/compilations/pdd
+	rm -rf $(PREFIX)/share/bash-completion/completions/pdd
 	rm -rf $(PREFIX)/share/fish/vendor_completions.d/pdd.fish
 	rm -rf $(PREFIX)/share/zsh/site-functions/_pdd
 
