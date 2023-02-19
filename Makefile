@@ -1,8 +1,8 @@
 PREFIX ?= /usr/local
 BINDIR ?= $(DESTDIR)$(PREFIX)/bin
 SHAREDIR ?= $(DESTDIR)$(PREFIX)/share
-MANDIR ?= $(SHAREDIR)/share/man/man1
-DOCDIR ?= $(SHAREDIR)/share/doc/pdd
+MANDIR ?= $(SHAREDIR)/man/man1
+DOCDIR ?= $(SHAREDIR)/doc/pdd
 
 .PHONY: all install uninstall install-bin install-completions install-bash-completion install-zsh-completion install-fish-completion
 
