@@ -13,8 +13,8 @@ install: install-bin install-completions
 install-bin:
 	gzip -c pdd.1 > pdd.1.gz
 	install -Dm755 pdd $(BINDIR)/pdd
-	install -Dm644 pdd.1.gz $(MANDIR)
-	install -Dm644 README.md $(DOCDIR)
+	install -Dm644 pdd.1.gz $(MANDIR)/pdd.1.gz
+	install -Dm644 README.md $(DOCDIR)/README.md
 	rm -f pdd.1.gz
 
 install-completions: install-bash-completion install-zsh-completion install-fish-completion
