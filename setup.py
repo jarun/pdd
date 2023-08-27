@@ -28,7 +28,7 @@ setup(
     author_email='engineerarun@gmail.com',
     url='https://github.com/jarun/pdd',
     license='GPLv3',
-    python_requires='>=3.7',  # requires pip>=9.0.0
+    python_requires='>=3.8',  # requires pip>=9.0.0
     platforms=['any'],
     py_modules=['pdd'],
     install_requires=['python-dateutil'],
@@ -53,10 +53,10 @@ setup(
         'Operating System :: OS Independent',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3 :: Only',
-        'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
         'Programming Language :: Python :: 3.10',
+        'Programming Language :: Python :: 3.11',
         'Topic :: Utilities'
     ]
 )
