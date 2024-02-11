@@ -6,3 +6,4 @@ pdd.egg-info
 dist/
 build/
 pdd.py
+_pdd
