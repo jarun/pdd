@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-<a href="https://asciinema.org/a/189581"><img src="https://asciinema.org/a/189581.svg" alt="Asciicast" width="650"/></a>
+<a href="https://github.com/user-attachments/assets/200eb224-ebdc-421b-97ea-b50a240c8681"><img src="https://github.com/user-attachments/assets/3ba7ddff-77e6-420b-8e8e-761bffb21837" alt="Asciicast" width="650"/></a>
 </p>
 
 `pdd` (Python3 Date Diff) is a tiny command line utility to calculate date and time difference. It can also be used as a timer. If no program arguments are specified it shows the current date, time and timezone.
