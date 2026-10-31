@@ -5,7 +5,8 @@
 <a href="https://repology.org/project/pdd/versions"><img src="https://repology.org/badge/tiny-repos/pdd.svg?header=repos" alt="Availability"></a>
 <a href="https://pypi.org/project/pdd/"><img src="https://img.shields.io/pypi/v/pdd.svg?maxAge=600" alt="PyPI" /></a>
 <a href="https://circleci.com/gh/jarun/workflows/pdd"><img src="https://img.shields.io/circleci/project/github/jarun/pdd.svg" alt="Build Status" /></a>
-<a href="https://github.com/jarun/pdd/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-GPLv3-yellowgreen.svg?maxAge=2592000" alt="License" /></a>
+<a href="https://github.com/jarun/pdd/blob/master/LICENSE"><img src="https://img.shields.io/badge/⚖-GPLv3-yellowgreen.svg?maxAge=2592000" alt="License" /></a>
+<a href="https://github.com/sponsors/jarun" target="_blank"><img src="https://img.shields.io/badge/sponsor-pdd-deeppink.svg" alt="GitHub Sponsors"></a>
 </p>
 
 <p align="center">
