@@ -269,7 +269,7 @@ def calc_misc(args):
 
         if args.add:
             if not validargs(args.keywords[0], args.keywords[1],
-                             args.keywords[1]):
+                             args.keywords[2]):
                 raise ValueError('negative value')
 
             today += getreldate(args.keywords)
